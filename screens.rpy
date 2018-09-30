@@ -368,7 +368,7 @@ screen main_menu():
     $ x+=71
     imagebutton auto "gui/main_config_%s.png" xpos 773 ypos x focus_mask True action ShowMenu('preferences')
     $ x+=71
-    imagebutton auto "gui/main_extras_%s.png" xpos 773 ypos x focus_mask True action Start('extras')
+    imagebutton auto "gui/main_extras_%s.png" xpos 773 ypos x focus_mask True # action Start('extras')
     $ x+=71
     imagebutton auto "gui/main_quit_%s.png" xpos 773 ypos x focus_mask True action Quit(confirm=False)
 
