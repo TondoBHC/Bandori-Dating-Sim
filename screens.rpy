@@ -1307,6 +1307,16 @@ screen nvl_dialogue(dialogue):
                 text d.what:
                     id d.what_id
 
+screen ui_top_buttons:
+    hbox:
+        #textbutton _("History") action ShowMenu('history')
+        imagebutton auto "gui/ui_log_button_%s.png" xpos 370 ypos 5 action ShowMenu('history')
+        imagebutton auto "gui/ui_skip_button_%s.png" xpos 380 ypos 5 action Skip() alternate Skip(fast=True, confirm=True)
+        imagebutton auto "gui/ui_auto_button_%s.png" xpos 390 ypos 5 action Preference("auto-forward", "toggle")
+        imagebutton auto "gui/ui_save_button_%s.png" xpos 400 ypos 5 action ShowMenu('save')
+        imagebutton auto "gui/ui_qsave_button_%s.png" xpos 410 ypos 5 action QuickSave()
+        imagebutton auto "gui/ui_qload_button_%s.png" xpos 420 ypos 5 action QuickLoad()
+        imagebutton auto "gui/ui_pref_button_%s.png" xpos 430 ypos 5 action ShowMenu('preferences')
 
 ## This controls the maximum number of NVL-mode entries that can be displayed at
 ## once.
