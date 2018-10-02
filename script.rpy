@@ -16,7 +16,7 @@ define t = Character("Tomoe")
 define h = Character("Hina")
 
 # Backgrounds
-#image bg staff room = "backgrounds/bg_staff-room.jpg"
+image bg staff room = "backgrounds/bg_staff-room.jpg"
 
 # The game starts here.
 
@@ -24,45 +24,45 @@ label start:
     show screen ui_top_buttons
     ". . . . ."
     pause .5
-    "Sorry to make you wait, things are hectic after summer vacations"
-    "All the student are still so lively, and us teachers have to assure the behave properly, is not vacation forever, they need to focus on their studies too!"
-    "Well... maybe I'm saying that to myself too, hehe.."
+    "Sorry to make you wait, things are hectic after summer vacation, but all the student are still so lively. However, us teachers have to assure they behave properly."
+    "It's not vacation forever after all, they need to focus on their studies too!"
+    "Well... maybe I'm saying that to myself too, hehe..."
     ". . . . ."
-    "Huh? And here I thought that will make you smile a little! Geez, now I look lame!"
-    #play music "music/ichisankara.mp3"
+    "Huh? And here I thought that would've made you smile a little! Geez, now I look lame!"
+    play music "music/Finder_Prism_and_Lens.mp3"
     #scene bg staff room with fade
     teacher "But seriously, you don't have to be that nervous!"
-    teacher "Is pretty weird to have a new transfer student at this time of the school year, but don't let that bring you down! You'll make friends quickly!"
+    teacher "It is pretty weird to have a new transfer student at this time of the school year, but don't let that bring you down! I'm sure you'll make friends quickly!"
     call nameplayer
     teacher "See? You already have a pretty nice name! You're on a roll!"
-    teacher "Okay, so... according to this, you transfered to our school by a student exchange program, you had a lot of choices, but you still chosen us! What make you choose this school?"
+    teacher "Okay, so... according to this, you transfered to our school by a student exchange program, you had a lot of choices, yet you still chosen us! What made you choose this school?"
     menu:
-        "What make you choose this school?"
-        "My mother attended Hanasakigawa on her student days":
+        "What made you choose this school?"
+        "My mother attended Hanasakigawa when she was a student.":
             jump fd_hanasakigawa
-        "I like the study program for Haneoka":
+        "I like the study program Haneoka offers.":
             jump fd_haneoka
 return
 
 label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
-    teacher "Such a deep reason! Surely Hanasakigawa is a school with too many memories from past generations!"
+    teacher "Such a deep reason! Surely Hanasakigawa is a school with many loving memories from past generations!"
 
     return
 
 label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
-    teacher "How diligent of you! We are proud of our students here in Haneoka, do your best too!"
+    teacher "How diligent of you! We are proud of our students here in Haneoka, I trust you'll excel in all your classes."
 
     return
 
 label nameplayer:
-    teacher "So... first of all, could you please remind me your name?"
+    teacher "So... first things first, what was your name again?"
     $ first_name = renpy.input("What is your first name?")
     $ first_name = first_name.strip()
     $ last_name = renpy.input("What is your last name?")
     $ last_name = last_name.strip()
-    teacher "So your name is [first_name] [last_name], I got it right?"
+    teacher "So your name is [first_name] [last_name], did I get that right?"
     menu:
-        "Yes, I am [first_name] [last_name]":
+        "Yes, I'm [first_name] [last_name]":
             pass
         "No":
             teacher "Sorry! I got it wrong!"
