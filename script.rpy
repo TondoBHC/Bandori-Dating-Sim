@@ -14,6 +14,7 @@ define me = Character("[first_name] [last_name]")
 define k = Character("Kaoru")
 define t = Character("Tomoe")
 define h = Character("Hina")
+define o = Character("Tae")
 
 # Backgrounds
 image bg staff room = "backgrounds/bg_staff-room.jpg"
