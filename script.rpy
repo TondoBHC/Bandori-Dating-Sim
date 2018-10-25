@@ -14,7 +14,6 @@ define me = Character("[first_name] [last_name]")
 define k = Character("Kaoru")
 define t = Character("Tomoe")
 define h = Character("Hina")
-define o = Character("Tae")
 
 # Backgrounds
 image bg staff room = "backgrounds/bg_staff-room.jpg"
@@ -22,6 +21,7 @@ image bg staff room = "backgrounds/bg_staff-room.jpg"
 # The game starts here.
 
 label start:
+    stop music
     show screen ui_top_buttons
     ". . . . ."
     pause .5
