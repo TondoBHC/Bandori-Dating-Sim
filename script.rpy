@@ -15,6 +15,14 @@ define k = Character("Kaoru")
 define t = Character("Tomoe")
 define h = Character("Hina")
 
+## Here I've created and defined 3 arrays holding the various
+## conjugations of the main pronouns we are going to be using throughout the game.
+define theyThem = ["They", "Them", "Their", "They\'re", "they", "them", "their", "they\'re"]
+define heHim = ["He", "Him", "His", "He\'s", "he", "him", "his", "he\'s"]
+define sheHer = ["She", "Her", "Her", "She\'s", "she", "her", "her", "she\'s"]
+## Empty variable that will hold the array chosen later for ease of use when coding pronouns.
+$ pronoun = None
+
 # Backgrounds
 image bg staff room = "backgrounds/bg_staff-room.jpg"
 
@@ -23,8 +31,23 @@ image bg staff room = "backgrounds/bg_staff-room.jpg"
 label start:
     stop music
     show screen ui_top_buttons
+    menu:
+        "Which pronouns do you prefer using?"
+
+        "They/Them":
+            $ pronoun = theyThem
+
+        "He/Him":
+            $ pronoun = heHim
+
+        "She/Her":
+            $ pronoun = sheHer
+
     ". . . . ."
     pause .5
+    ## To use the pronoun variable they have to be incased in brackets[], friendly reminder that arrays start from 0.
+    ## The dialogue doesn't make much sense, but it's just a test.
+    "Oh [pronoun[5]]? You don\'t need to worry about [pronoun[5]]."
     "Sorry to make you wait, things are hectic after summer vacation, but all the student are still so lively. However, us teachers have to assure they behave properly."
     "It's not vacation forever after all, they need to focus on their studies too!"
     "Well... maybe I'm saying that to myself too, hehe..."
