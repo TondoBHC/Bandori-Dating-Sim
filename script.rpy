@@ -10,6 +10,7 @@ define e = Character("Eileen")
 
 define teacher = Character("Teacher")
 define me = Character("[first_name] [last_name]")
+define mom = Character("Mom")
 
 define k = Character("Kaoru")
 define t = Character("Tomoe")
@@ -24,7 +25,9 @@ define sheHer = ["She", "Her", "Her", "She\'s", "she", "her", "her", "she\'s"]
 $ pronoun = None
 
 # Backgrounds
-image bg staff room = "backgrounds/bg_staff-room.jpg"
+image bg staff room = "backgrounds/bgStaffRoom.jpg"
+image mc bedroom = "backgrounds/mcBedroom.jpg"
+image school front outside = "backgrounds/schoolFrontOutside.jpg"
 
 # The game starts here.
 
@@ -42,24 +45,45 @@ label start:
 
         "She/Her":
             $ pronoun = sheHer
-
-    ". . . . ."
-    pause .5
+    label nameplayer:
+        "What name would you like to go by?"
+        $ first_name = renpy.input("First name")
+        $ first_name = first_name.strip()
+        $ last_name = renpy.input("Last name")
+        $ last_name = last_name.strip()
+        "So [first_name] [last_name], is that right?"
+        menu:
+            "Yes, [first_name] [last_name]":
+                pass
+            "No":
+                "Well then, enter the correct one."
+                call nameplayer
     ## To use the pronoun variable they have to be incased in brackets[], friendly reminder that arrays start from 0.
-    ## The dialogue doesn't make much sense, but it's just a test.
-    "Oh [pronoun[5]]? You don\'t need to worry about [pronoun[5]]."
-    "Sorry to make you wait, things are hectic after summer vacation, but all the student are still so lively. However, us teachers have to assure they behave properly."
-    "It's not vacation forever after all, they need to focus on their studies too!"
-    "Well... maybe I'm saying that to myself too, hehe..."
-    ". . . . ."
-    "Huh? And here I thought that would've made you smile a little! Geez, now I look lame!"
+    play music "music/firstDayMorning.mp3"
+    scene mc bedroom with fade
+    pause 5.0
+    stop music
+    play music "music/8AM.mp3"
+    "Oh boy, my first day at my new school! I can\'t wait to see what it has in store for me!"
+    "I\'ll probably get to meet all sorts of cool people and make a bunch of new friends. Although..."
+    "I do miss my old ones, but they did say our friendship was over until I made at least 3 new friends so it\'s do or die."
+    "I wonder what type of people go there. Maybe some cool rocker punks, or maybe some pure cinnamon buns, or maybe..."
+    mom "Honey it\'t already 8 o\'clock, you don\'t want to be late on your first day, do you?"
+    "WHAT!? Oh shit, it is already 8! This is bad, I better hurry the fuck up or I\'ll make a bad first impression."
+    me "Coming!"
+    stop music
     play music "music/Finder_Prism_and_Lens.mp3"
-    #scene bg staff room with fade
-    teacher "But seriously, you don't have to be that nervous!"
-    teacher "It is pretty weird to have a new transfer student at this time of the school year, but don't let that bring you down! I'm sure you'll make friends quickly!"
-    call nameplayer
-    teacher "See? You already have a pretty nice name! You're on a roll!"
-    teacher "Okay, so... according to this, you transfered to our school by a student exchange program, you had a lot of choices, yet you still chosen us! What made you choose this school?"
+    scene school front outside with fade
+    "Phew! Just made it, and with 2 minutes to spare."
+    if pronoun == theyThem:
+        teacher "Ah, there [pronoun[4]] are, the new student. Just in time."
+    else:
+        teacher "Ah, there [pronoun[4]] is, the new student. Just in time."
+    scene bg staff room with fade
+    teacher "I must say, it is quite odd to have a new transfer student at this time of the school year, but don't let that bring you down! I'm sure you'll make friends quickly!"
+    teacher "Now let\'s see here, [first_name] [last_name]? Well that\'s a pretty nice name, you\'re already on a roll!"
+    "Yeah, if you ignore the fact I was almost late on my first day."
+    teacher "Okay, so... according to this, you transfered to our school via a student exchange program, you had a lot of choices, yet you still chosen us! What made you choose this school?"
     menu:
         "What made you choose this school?"
         "My mother attended Hanasakigawa when she was a student.":
@@ -69,29 +93,16 @@ label start:
 return
 
 label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
-    teacher "Such a deep reason! Surely Hanasakigawa is a school with many loving memories from past generations!"
-
+    teacher "Oh [first_name], such a deep reason! Surely Hanasakigawa is a school with many loving memories from past generations!"
+    "Hopefully I\'ll get to make some loving memories of my own."
     return
 
 label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
-    teacher "How diligent of you! We are proud of our students here in Haneoka, I trust you'll excel in all your classes."
-
+    teacher "How diligent of you, [first_name]! We are proud of our students here in Haneoka, I trust you'll excel in all your classes."
+    "I sure hope so."
     return
 
-label nameplayer:
-    teacher "So... first things first, what was your name again?"
-    $ first_name = renpy.input("What is your first name?")
-    $ first_name = first_name.strip()
-    $ last_name = renpy.input("What is your last name?")
-    $ last_name = last_name.strip()
-    teacher "So your name is [first_name] [last_name], did I get that right?"
-    menu:
-        "Yes, I'm [first_name] [last_name]":
-            pass
-        "No":
-            teacher "Sorry! I got it wrong!"
-            call nameplayer
-return
+
 
 # label points:
 #     $ k_points = 0
