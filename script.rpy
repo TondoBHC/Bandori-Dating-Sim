@@ -12,13 +12,15 @@ define principal = Character("Principal")
 define fullName = Character("[first_name] [last_name]")
 define mom = Character("Mom")
 $ user = None
+define affection = 0
 
 define k = Character("Kaoru")
 define t = Character("Tomoe")
 define h = Character("Hina")
 define s = Character("Sayo")
-define a = Character("Arisa")
+define a = Character("Arisa", color="#800080")
 define ta = Character("Tae")
+define ka = Character("Kasumi", color="#ff0000")
 
 ## Here I've created and defined 3 arrays holding the various
 ## conjugations of the main pronouns we are going to be using throughout the game.
@@ -101,7 +103,7 @@ label start:
         principal "Alright then, [user] it is!"
     else:
         pass
-    principal "Okay, so... according to this, you transfered to our school via a student exchange program, you had a lot of choices, yet you still chosen us! What made you choose this school?"
+    principal "Okay, so... according to this, you transferred to our school via a student exchange program, you had a lot of choices, yet you still chosen us! What made you choose this school?"
     menu:
         "What made you choose this school?"
         "My mother attended Hanasakigawa when she was a student.":
@@ -124,7 +126,7 @@ label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
     principal "Marvelous, I can tell you two are going to be great friends!"
     principal "Now then, [s], why don\'t you take [user] on a tour of the school while I finish up some work of my own."
     s "Of course, [last_name], after you."
-    "We step outside of the teachers lounge and into the empty hallway, pressumably because everyone is in class."
+    "We step outside of the teachers lounge and into the empty hallway, presumably because everyone is in class."
     "For a, not-so-brief, moment we stare each other down like lions in a pit."
     s "..."
     user "..."
@@ -132,36 +134,217 @@ label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
     s "Will you excuse yourself as to look presentable, or shall I redo them for you?"
     menu:
         "Wha... I didn\'t notice, I-I\'ll be right back.":
-            jump herbivore
+            call herbivore
         "I dare you to.":
-            jump carnivore
+            call carnivore
         "...":
-            jump passive
+            call passive
 
-    label herbivore: # You redo your buttons yourself
-        "I do them up again, this time, hopefully, correct. My reflection has four buttons, two on each side."
-        "As I leave the washroom, I see [s] waiting for me outside, the expression on her face is an interesting mix of contempt and amusement."
-        s "The writers have yet to write what goes after, I\'m afraid you can\'t progress any further."
+    s "We’ve wasted enough time here, please pay more attention to your appearance in the future."
+    "We descend a flight of stairs and arrive at the library."
+    s "This is the library. The books range from print to electronic, fiction to non-fiction..."
+    "They have Kindles!?"
+    "A cuckoo clock on the wall next to us chimes, and I watch the bird pop in and out and back in again."
+    "The poster reads “Doki Doki Literature Club: Join Us Now!”"
+    "My mind begins to note everything but her voice, and it’s too late when I realise this."
+    s "Why are you even here? Why don’t you go back to wherever you came from?"
+    jump hostClub
     return
-
-    label carnivore:
-        s "You\'re insufferable, the washroom is down the corridor. Go on now."
-        "And so off I went."
-        "Hmm, it seems the writers have yet to write what goes after, I\'m sure they\'re working hard writing the script. For now I\'ll go to the main menu."
-    return
-
-    label passive:
-        "¯\\_(^^)_/¯"
-    return
-    
-return
 
 label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
     principal "How diligent of you, [user]! We are proud of our students here in Haneoka, I trust you'll excel in all your classes."
     "I sure hope so."
+    jump hostClub
     return
 
+label herbivore: # You redo your buttons yourself
+    "I do them up again, this time, hopefully, correct. My reflection has four buttons, two on each side."
+    "As I leave the washroom, I see [s] waiting for me outside, the expression on her face is an interesting mix of contempt and amusement."
+    return
 
+label carnivore:
+    s "You\'re insufferable, the washroom is down the corridor. Go on now."
+    "And so off I went."
+    "I came back to the same haughty expression."
+    return
+
+label passive:
+    s "You remind me of my insufferable younger twin. Make haste and come on over."
+    "I watch as she undoes my buttons and deftly does them up again. My lips form some sort of protest, but they dissolve in my mouth."
+    return
+
+label hostClub:
+    # GUEST(S) ARRIVE
+    user "(It looks like a guest just arrived. I better go and impress them!)"
+    show kasumi_wave
+    ka "Hi hi!"
+    hide kasumi_wave
+    show kasumi_excited
+    ka "Wow! It's so big and fancy in here!"
+    hide kasumi_excited
+    show kasumi_determined
+    ka "Oi! You must be a host here!"
+    user "Uh, yeah...(I'm still not used to this whole 'host' thing but I have to get into it! This time, I give a big smile to the girl.)"
+    user "I mean, welcome to the host club! Have a seat!"
+    hide kasumi_determined
+    show kasumi_idle
+    ka "Okay okay!"
+    hide kasumi_idle
+    user "(I feel eyes on me, so I turn around.)"
+    show arisa_cross
+    user "(Is that...Arisa watching me?)"
+    hide arisa_cross
+    user "(No it couldn't be...right? Anyway, I have to go and talk to this guest.)"
+    show kasumi_idle
+    ka "Sooo..."
+    hide kasumi_idle
+    show kasumi_curious
+    ka "What do we do now? Are you going to perform a trick for me?"
+    user "Not quite. Well I mean, I hope I can bewitch you with my hosting skills!"
+    user "(...that was so corny.)"
+    hide kasumi_curious
+    show kasumi_excited
+    ka "Wah! So cool! Alright, I'm ready! Let's go!"
+    user "Okay let's talk about..."
+    # PLAYER CHOOSES WHAT TO TALK ABOUT
+    menu:
+        # SAFE OPTION ; NETURAL AFFECTION
+        "Music":
+            #Instead of having multiple choice variable then rewarding or punishing the player at the end of this interaction, we could just reward or
+            #punish the player as they make the choices and use an if statement to varify the amount of points and, based on that, what reaction to use.
+            $ affection = affection + 0
+            hide kasumi_excited
+            show kasumi_determined
+            ka "Gah! I love music! I can sing and play guitar!"
+            hide kasumi_determined
+            show kasumi_curious
+            ka "What do you play?"
+            user "I play trumpet."
+            hide kasumi_curious
+            show kasumi_excited
+            ka "Wow! Amazing, amazing! I've not met someone who has played trumpet!"
+            hide kasumi_excited
+            show kasumi_idle
+            jump after_menu
+        #RISKY OPTION ; +- AFFECTION
+        "Bonsai":
+            # A label isn't really needed here, plus it uses less resources.
+            hide kasumi_excited
+            show kasumi_curious
+            ka "Bon...sai?"
+            hide kasumi_curious
+            show kasumi_idle
+            ka "Ah, ah! I know! That's what Arisa likes!"
+            user "(She knows Arisa? I didn't think Arisa would be able to stand people like her, maybe I was wrong.)"
+            hide kasumi_idle
+            show kasumi_curious
+            ka "Hey hey! Give me a bonsai style!"
+            menu:
+                #BEST CHOICE
+                "Chokkan.":
+                    $ affection = affection + 5
+                    user "Chokkan is probably one of the most common."
+                    hide kasumi_curious
+                    show kasumi_idle
+                    user "Chokkan trees have upright trunks, like ones in nature, and are considered pretty formal."
+                    jump after_menu
+                #BAD CHOICE
+                "Rikka.":
+                    $ affection = affection - 5
+                    user "Rikka is a popular one."
+                    hide kasumi_curious
+                    show kasumi_idle
+                    user "It has nine branches to show parts of nature and how beautiful it is."
+                    jump after_menu
+                #WORST CHOICE
+                "Ikebana.":
+                    $ affection = affection - 10
+                    user "Ikebana is a good one."
+                    hide kasumi_curious
+                    show kasumi_idle
+                    user "Ikebana is an arrangement which give life to flowers!"
+                    user "(Wait, is this really bonsai? Oh well, Kasumi doesn't seem to notice the difference so it will be fine.)"
+                    jump after_menu
+    return
+    
+    label after_menu:
+        #GUEST LEAVES
+        hide Kasumi
+        hide kasumi_idle
+        show kasumi_determined
+        ka "Anyway, let me tell you about myself instead!"
+        hide kasumi_determined
+        user "(Kasumi talks about the iconic moment of her life when she went to see the stars.)"
+        show kasumi_idle
+        ka "That was fun!"
+        hide kasumi_idle
+        show kasumi_wave
+        ka "Bye bye!"
+        user "Thank you for coming!"
+        hide kasumi_wave
+        user "(Kasumi left with a smile on her face)"
+        jump arisa_reaction
+    return
+
+    #GIRL REACTIONS
+    #Theres no need to use multiple ifs, you can use one if, multiple elifs, then one final else.
+    label arisa_reaction:
+        # + AFFECTION
+        if (affection > 0):
+            show arisa_happy
+            a "You know about bonsai trees?"
+            user "Ah, yes!"
+            hide arisa_happy
+            show arisa_cross
+            a "I mean, of course you'd KNOW of them, but..."
+            hide arisa_cross
+            show arisa_impressed
+            a "I didn't think YOU would know what Chokkan was!"
+            hide arisa_impressed
+            user "(Arisa walks away, grinning to herself. She seems impressed. I must have made a good impression!)"
+            jump showAffection
+        # NETURAL AFFECTION
+        elif affection == 0:
+            show arisa_happy
+            a "You didn't do too bad there."
+            hide arisa_happy
+            show arisa_cross
+            a "But don't think that means you can slack off! There's always room for improvement!"
+            hide arisa_cross
+            user "(Arisa is the same as always)"
+            jump showAffection
+        # - AFFECTION
+        elif (affection < 0) and (affection > -6):
+            show arisa_cross
+            a "You know Rikka is flower arrangement, right?"
+            user "Huh?"
+            hide arisa_cross
+            show arisa_angry
+            a "You know? Rikka is part of Ikebana!"
+            user "I must have mixed the two up! Good thing Kasumi didn't notice!"
+            hide arisa_angry
+            show arisa_sad
+            a "Yeah..."
+            hide arisa_sad
+            user "(Arisa walks off, disappointed.)"
+            jump showAffection
+        # -- AFFECTION
+        else:
+            show arisa_angry
+            a "Are you stupid? An idiot can tell the difference between flower arranging and bonsai!"
+            hide arisa_angry
+            show arisa_cross
+            a "I expected more from you, jeez!"
+            hide arisa_cross
+            user "(Arisa storms off, she is really mad!)"
+            jump showAffection
+return
+
+#Changed the name of the label to avoid any confusion with the variable itself.
+label showAffection:
+    "Your affection level is [affection]"
+    # This ends the game.
+    return
 
 # label points:
 #     $ k_points = 0
@@ -185,7 +368,7 @@ label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
 #
 # label bondmenu:
 #     menu:
-#         "Who do you want tho bond to?"
+#         "Who do you want to bond with?"
 #         "Bond with Kaoru":
 #             $ k_points += 1
 #             k "Thank you little kitten"
