@@ -34,6 +34,7 @@ $ pronoun = None
 image bg staff room = "backgrounds/bgStaffRoom.jpg"
 image mc bedroom = "backgrounds/mcBedroom.jpg"
 image school front outside = "backgrounds/schoolFrontOutside.jpg"
+image back = "backgrounds/back.jpg"
 
 # The game starts here.
 
@@ -64,14 +65,14 @@ label start:
             $ user = ("GioGio")
         else:
             $ user = Character("[first_name]")
-        "So [fullName], is that right?"    
+        "So [fullName], is that right?"
         menu:
             "Yes, [fullName]":
                 pass
             "No":
                 "Well then, enter the correct one."
                 call nameplayer
-    
+
     ## To use the pronoun variable they have to be incased in brackets[], friendly reminder that arrays start from 0.
     stop music
     play music "music/firstDayMorning.mp3"
@@ -151,11 +152,6 @@ label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
     jump hostClub
     return
 
-label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
-    principal "How diligent of you, [user]! We are proud of our students here in Haneoka, I trust you'll excel in all your classes."
-    "I sure hope so."
-    jump hostClub
-    return
 
 label herbivore: # You redo your buttons yourself
     "I do them up again, this time, hopefully, correct. My reflection has four buttons, two on each side."
@@ -173,8 +169,137 @@ label passive:
     "I watch as she undoes my buttons and deftly does them up again. My lips form some sort of protest, but they dissolve in my mouth."
     return
 
+# MOVED HANEOKA OPTION DOWN HERE SO IT IS CLEANER
+#All the kaoru sprits seem to be a bit unaligned, some play testing would need to be done to adjust them. -Tondo
+label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
+    principal "How diligent of you, [user]! We are proud of our students here in Haneoka, I trust you'll excel in all your classes."
+    "I sure hope so."
+
+    #scene for hallway
+    user "(The principal told me I would find my tour guide ‘Seta Kaoru’ upstairs in the drama club room, so I guess that’s my next stop.)"
+    user "(I walk down the hallway to find the staircase. As I climb up each step, I count out loud out of mere curiosity.)"
+    user "One {w}Two{w=1.0} Three {w}Four{w=1.0}"
+    user "Five {w}Six{w=1.0} Seven {w}Eight{w=1.0}"
+    user "Nine {w}Ten{w=1.0} Eleven {w}Twelve{w=1.0}"
+    user "(  Just as I was about to bring my other foot up...)"
+    #defining karou as unknown (as player does not yet know them)
+    #All the girls can be defined as ??? when first defined up top, and later redefined with their proper names as the player gets to know them, to avoid
+    #multiple redefinings. -Tondo
+    $ k = "???"
+    k "Thirteen!"
+    user "(An alluring voice called out. Startled by the voice, I lose my balance and start to stumble backwards.)"
+    user "Crap!"
+    with vpunch
+    user "(This is it.)"
+    user "(I’m going to die by stairs.)"
+    user "(I close my eyes and brace for the painful impact of the hard floor until something- or rather, someone- grabbed my waist.)"
+    show karou_smile
+    k "Are you alright, my little kitten?"
+
+
+    #image will show without and the player can admire it as much as they want until they click to move on
+    hide karou_smile
+    window hide
+    show placeholder_karou_cg with fade
+    $ renpy.pause ()
+
+    #game continues when player clicks
+    window show
+    user "(My eyes open to see a purple haired girl gripping the railing of the staircase to prevent the both of us from falling.)"
+    user "U-um... yeah..."
+    user "(Flustered by the intimate contact, I couldn’t help but blush. It didn’t help that her crimson eyes stared into my own.)"
+    $ k = "Purple haired girl"
+    k "I’m relieved. It would be an injustice if a cute little kitten such as yourself were to be harmed."
+    user "(She pulled me up and guided me safely to the top of the staircase.)"
+    hide placeholder_karou_cg
+
+    show karou_idle
+    user "(Her voice sounded familiar though{p}...Ah.)"
+    #There was a new paragraph created just for the closing parenthesis, I don't know if that's what you intended but it looked kinda odd, so I removed it.
+    user "(I remember that someone said “Thirteen” which surprised me and made me lose my balance. Her voice was the same voice.)"
+    user "Although I wouldn’t have tripped if you didn’t surprise me by calling out ‘Thirteen’ like that..."
+    hide karou_idle
+    show karou_suprised
+    k "What?"
+    k "I haven’t uttered a word."
+    hide karou_suprised
+    show karou_pride2
+    k "Perchance I was on my way downstairs that I’ve come across you, my damsel,  in a moment of distress and risked life and limb to save you."
+    user "(Eeehhh?)"
+    user "(I did hear rushing footsteps and there’s no one else here. If that’s true...)"
+    user "If you didn’t say that then who did? There isn’t anyone else here."
+    hide karou_pride2
+    show karou_suprised
+    user "(The purple haired girl froze. Her face paled at my words.)"
+    hide karou_suprised
+    show karou_scared
+    k "I-it might have been nothing."
+    hide karou_scared
+    show karou_idle
+    k "Well if you look at the time, I must be going to the principal’s office. I have to pick up what I’ve forgotten for a new student."
+    user "(She forgot something? And it’s something for a new student? {p}Could she be..?)"
+    user "Are you Seta Kaoru?"
+    $ k = "Kaoru"
+    k "Why yes, I am."
+    hide karou_idle
+    show karou_pride
+    k "Now that you know my name, may I have the honor of knowing yours, my little kitten?"
+    user "I’m [fullName], the new student. The principal gave me what you left behind and told me to meet you in the drama club room."
+    hide karou_pride
+    show karou_pride2
+    k "Ah yes, as leader of the host club, it’s my duty as a prince to show a lovely little kitten like you around the school."
+    hide karou_pride2
+    show karou_scared
+    k "If I may, I believe what I forgot was your schedule."
+    user "(I hand over my schedule and she looks over it.)"
+    hide karou_scared
+    show karou_pride2
+    k "Ah I see. How fleeting."
+    user "(She hands my schedule back to me.)"
+    hide karou_pride2
+    show karou_pride
+    k "Let us embark now on a journey around the school."
+    user "(We began the tour of the school.)"
+    hide karou_pride
+
+    user "(We stopped by the gym)"
+    #here we would use scene x with fade. this will be done when all backgrounds are done
+    #Which would work better, 4 lines each with it's own scene or 1 line split into 4 paragraphs and a scene for each paragraph with the pause/wait function? -Tondo
+    user "(We stopped by the auditorium)"
+    user "(We stopped by the classrooms)"
+    user "(We stopped by the the drama club)"
+
+
+    #scene should return to hallway after tour
+    user "Are there other clubs here at the school?"
+    show karou_idle
+    k "Yes. Off the top of my head, there’s the enthusiastic dance club, the dedicated student council, and the vigorous tennis club."
+    user "(I don’t think I can deal with the busy work the student council is given. The dance club and tennis club seems to be really active given what Kaoru said. And I don’t think I have it in me to act so dramatic or act realistically.)"
+    user "Are there any other clubs?"
+    k "Of course, there are other clubs. In fact, I myself am a part of another club."
+    user "(Oh yeah, that’s right.)"
+    user "You mentioned being the leader of the host club. But what is this ‘host club’?"
+    hide karou_idle
+    show karou_pride2
+    k "The host club is-"
+    user "(Before she could finish, the bell rang.)"
+    hide karou_pride2
+    show karou_smile
+    k "I guess this is the end of the tour. It’s best if we head to class."
+    hide karou_smile
+    show karou_pride
+    k "Adieu, my little kitten."
+    hide karou_pride
+    user "(She flashed a princely smile before she left. I decide to head to class too but one thing on my mind remains unanswered.)"
+    user "(What the hell is the host club?)"
+
+    jump hostClub
+    return
+
 label hostClub:
     # GUEST(S) ARRIVE
+    #Remember that to use backgrounds and the scene function, you first have to define the image, for organization it's done below line 33. -Tondo
+    scene back
     user "(It looks like a guest just arrived. I better go and impress them!)"
     show kasumi_wave
     ka "Hi hi!"
@@ -266,7 +391,7 @@ label hostClub:
                     user "(Wait, is this really bonsai? Oh well, Kasumi doesn't seem to notice the difference so it will be fine.)"
                     jump after_menu
     return
-    
+
     label after_menu:
         #GUEST LEAVES
         hide Kasumi
