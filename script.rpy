@@ -584,6 +584,61 @@ label Tae:
     "I come to my senses, but Hanazono Tae has disappeared without a trace."
     jump showAffection
     return
+#ARISA Start
+#I think there are other expressions of Arisa that can be used. Not sure on hunch
+#Not sure on how to add this within the script
+label arisa:
+    user "Man... I hope I can get some good food from the cafeteria. At least I hope I have enough money to buy something."
+    "I exit the classroom into the hallway. There are a couple of other students out here too but they were travelling to different classrooms to eat with their friends."
+    "I take out my wallet to check how much money I have on me when I drop it."
+    "I bend down to pick it up when I notice a couple of pieces of paper."
+    "Upon closer inspection, they weren’t paper but rather photos."
+    "Picking one up, I see it’s a picture of a small tree. It’s really cute! All right, all safe and sound. I pat my pocket to make sure it doesn’t fall."
+    "Before I could pick the other pictures up, someone swipes them off from the floor."
+    user "Hey! You can’t just take these!"
+    "There she was, a light chestnut-haired beauty with a blushing red face."
+    #(CG of Arisa blushing and holding the pictures)
+    a "What do you mean? These pictures are mine"
+    a "If anything, it looks like you were gonna keep them yourself."
+    "These photos are hers?"
+    "Wait... back up a bit. She thinks I tried to take them. I should clear that up first."
+    user "No, I just saw them and wanted to return them."
+    user "I wasn’t gonna take them. I swear."
+    #(End of CG)
+    a "Is that so?"
+    a "Then I guess you won’t mind if I count them."
+    "Uh-oh. She’ll notice that there’s one missing."
+    show arisa_angry
+    "Before I could even think about pulling the photo out, her glaring eyes had told me it was too late."
+    a "Where’s Tamagawa?"
+    hide arisa_angry
+    "Tamagawa? That’s a weird way to ask for the photo."
+    user "Is that the name of the photo?"
+    show arisa_cross
+    a "It’s not the name of the photo, it’s the name of my bonsai tree in that photo"
+    hide arisa_cross
+    user "So this tree is named Tamagawa?"
+    "I took out the photo and gave it back to her."
+    user "Do the other trees have names?"
+    "Her face reddened as though she realized she said something embarrassing when I asked her my question."
+    a "It’s just the one that has the name. I certainly didn’t name one of my trees Yodogawa."
+    "So they do have another names. That reminds me..."
+    user "What’s your name?"
+    a "Huh? My name? I’m Ichigaya Arisa."
+    a "What about you?"
+    user "What about me?"
+    a "Your name?"
+    user "Ah... I’m [fullName]. I’m new here"
+    a "Is that so? Well, I have my photos now. I better hurry and spend the rest of the lunch period with my friends."
+    user "Ok. I’ll see you around I guess."
+    "With a hesitant farewell, she left."
+    "She seemed pretty interesting."
+    "I wonder if I’ll see her around."
+    "Now what was I going to do?"
+    "…"
+    "Ah! That’s right! I was supposed to buy lunch."
+    "Hopefully there’s still to time to get something."
+    "And with that, I sprinted towards the cafeteria."
 
 label hostClubHaneoka:
     hi "Whoops, looks like there's nothing here yet. Come back later."
