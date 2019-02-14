@@ -174,7 +174,7 @@ label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
     "Hikawa-san’s in the middle dressed as a butler, turquoise hair pulled back in a ponytail."
     "She’s smiling at invisible royalty."
     #Missing the Sayo intro -> post class transition.
-    jump hostClubHanasaki
+    jump arisa
     return
 
 # MOVED HANEOKA OPTION DOWN HERE SO IT IS CLEANER
@@ -639,6 +639,7 @@ label arisa:
     "Ah! That’s right! I was supposed to buy lunch."
     "Hopefully there’s still to time to get something."
     "And with that, I sprinted towards the cafeteria."
+    jump hostClubHanasaki
 
 label hostClubHaneoka:
     hi "Whoops, looks like there's nothing here yet. Come back later."
