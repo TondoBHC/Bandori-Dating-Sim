@@ -175,6 +175,7 @@ label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
     "She’s smiling at invisible royalty."
     #Missing the Sayo intro -> post class transition.
     jump arisa
+    jump Tae
     return
 
 # MOVED HANEOKA OPTION DOWN HERE SO IT IS CLEANER
@@ -206,12 +207,12 @@ label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
     "This is it."
     "I’m going to die by stairs."
     "I close my eyes and brace for the painful impact of the hard floor until something- or rather, someone- grabbed my waist."
-    show karou_smile
+    show old_karou_smile
     k "Are you alright, my little kitten?"
 
 
     #image will show without and the player can admire it as much as they want until they click to move on
-    hide karou_smile
+    hide old_karou_smile
     window hide
     show placeholder_karou_cg with fade
     $ renpy.pause ()
@@ -226,55 +227,55 @@ label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
     "She pulled me up and guided me safely to the top of the staircase."
     hide placeholder_karou_cg
 
-    show karou_idle
+    show old_karou_idle
     "Her voice sounded familiar though{w}...Ah."
     #There was a new paragraph created just for the closing parenthesis, I don't know if that's what you intended but it looked kinda odd, so I removed it.
     #Thank for editing - was supposed to be wait. Changed. (COOKIE)
     "I remember that someone said “Thirteen” which surprised me and made me lose my balance. Her voice was the same voice."
     user "Although I wouldn’t have tripped if you didn’t surprise me by calling out ‘Thirteen’ like that..."
-    hide karou_idle
-    show karou_suprised
+    hide old_karou_idle
+    show old_karou_suprised
     k "What?"
     k "I haven’t uttered a word."
-    hide karou_suprised
-    show karou_pride2
+    hide old_karou_suprised
+    show old_karou_pride2
     k "Perchance I was on my way downstairs that I’ve come across you, my damsel,  in a moment of distress and risked life and limb to save you."
     "Eeehhh?"
     "I did hear rushing footsteps and there’s no one else here. If that’s true..."
     user "If you didn’t say that then who did? There isn’t anyone else here."
-    hide karou_pride2
-    show karou_suprised
+    hide old_karou_pride2
+    show old_karou_suprised
     "The purple haired girl froze. Her face paled at my words."
-    hide karou_suprised
-    show karou_scared
+    hide old_karou_suprised
+    show old_karou_scared
     k "I-it might have been nothing."
-    hide karou_scared
-    show karou_idle
+    hide old_karou_scared
+    show old_karou_idle
     k "Well if you look at the time, I must be going to the principal’s office. I have to pick up what I’ve forgotten for a new student."
     "She forgot something? And it’s something for a new student? {w}Could she be..?"
     user "Are you Seta Kaoru?"
     $ k = "Kaoru"
     k "Why yes, I am."
-    hide karou_idle
-    show karou_pride
+    hide old_karou_idle
+    show old_karou_pride
     k "Now that you know my name, may I have the honor of knowing yours, my little kitten?"
     user "I’m [fullName], the new student. The principal gave me what you left behind and told me to meet you in the drama club room."
-    hide karou_pride
-    show karou_pride2
+    hide old_karou_pride
+    show old_karou_pride2
     k "Ah yes, as leader of the host club, it’s my duty as a prince to show a lovely little kitten like you around the school."
-    hide karou_pride2
-    show karou_scared
+    hide old_karou_pride2
+    show old_karou_scared
     k "If I may, I believe what I forgot was your schedule."
     "I hand over my schedule and she looks over it."
-    hide karou_scared
-    show karou_pride2
+    hide old_karou_scared
+    show old_karou_pride2
     k "Ah I see. How fleeting."
     "She hands my schedule back to me."
-    hide karou_pride2
-    show karou_pride
+    hide old_karou_pride2
+    show old_karou_pride
     k "Let us embark now on a journey around the school."
     "We began the tour of the school."
-    hide karou_pride
+    hide old_karou_pride
 
     "We stopped by the gym"
     #here we would use scene x with fade. this will be done when all backgrounds are done
@@ -287,24 +288,24 @@ label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
 
     #scene should return to hallway after tour
     user "Are there other clubs here at the school?"
-    show karou_idle
+    show old_karou_idle
     k "Yes. Off the top of my head, there’s the enthusiastic dance club, the dedicated student council, and the vigorous tennis club."
     "I don’t think I can deal with the busy work the student council is given. The dance club and tennis club seems to be really active given what Kaoru said. And I don’t think I have it in me to act so dramatic or act realistically."
     user "Are there any other clubs?"
     k "Of course, there are other clubs. In fact, I myself am a part of another club."
     "Oh yeah, that’s right."
     user "You mentioned being the leader of the host club. But what is this ‘host club’?"
-    hide karou_idle
-    show karou_pride2
+    hide old_karou_idle
+    show old_karou_pride2
     k "The host club is-"
     "Before she could finish, the bell rang."
-    hide karou_pride2
-    show karou_smile
+    hide old_karou_pride2
+    show old_karou_smile
     k "I guess this is the end of the tour. It’s best if we head to class."
-    hide karou_smile
-    show karou_pride
+    hide old_karou_smile
+    show old_karou_pride
     k "Adieu, my little kitten."
-    hide karou_pride
+    hide old_karou_pride
     "She flashed a princely smile before she left. I decide to head to class too but one thing on my mind remains unanswered."
     "What the hell is the host club?"
 
@@ -316,36 +317,36 @@ label hostClubHanasaki:
     #Remember that to use backgrounds and the scene function, you first have to define the image, for organization it's done below line 33. -Tondo
     scene back
     "It looks like a guest just arrived. I better go and impress them!"
-    show kasumi_wave
+    show old_kasumi_wave
     ka "Hi hi!"
-    hide kasumi_wave
-    show kasumi_excited
+    hide old_kasumi_wave
+    show old_kasumi_excited
     ka "Wow! It's so big and fancy in here!"
-    hide kasumi_excited
-    show kasumi_determined
+    hide old_kasumi_excited
+    show old_kasumi_determined
     ka "Oi! You must be a host here!"
     user "Uh, yeah..."
     "I'm still not used to this whole 'host' thing but I have to get into it!"
     "This time, I give a big smile to the girl."
     user "I mean, welcome to the host club! Have a seat!"
-    hide kasumi_determined
-    show kasumi_idle
+    hide old_kasumi_determined
+    show old_kasumi_idle
     ka "Okay okay!"
-    hide kasumi_idle
+    hide old_kasumi_idle
     "I feel eyes on me, so I turn around."
-    show arisa_cross
+    show old_arisa_cross
     "Is that...Arisa watching me?"
-    hide arisa_cross
+    hide old_arisa_cross
     "No it couldn't be...right? Anyway, I have to go and talk to this guest."
-    show kasumi_idle
+    show old_kasumi_idle
     ka "Sooo..."
-    hide kasumi_idle
-    show kasumi_curious
+    hide old_kasumi_idle
+    show old_kasumi_curious
     ka "What do we do now? Are you going to perform a trick for me?"
     user "Not quite. Well I mean, I hope I can bewitch you with my hosting skills!"
     "...that was so corny."
-    hide kasumi_curious
-    show kasumi_excited
+    hide old_kasumi_curious
+    show old_kasumi_excited
     ka "Wah! So cool! Alright, I'm ready! Let's go!"
     user "Okay let's talk about..."
     # PLAYER CHOOSES WHAT TO TALK ABOUT
@@ -355,55 +356,55 @@ label hostClubHanasaki:
             #Instead of having multiple choice variable then rewarding or punishing the player at the end of this interaction, we could just reward or
             #punish the player as they make the choices and use an if statement to varify the amount of points and, based on that, what reaction to use.
             $ affection = affection + 0
-            hide kasumi_excited
-            show kasumi_determined
+            hide old_kasumi_excited
+            show old_kasumi_determined
             ka "Gah! I love music! I can sing and play guitar!"
-            hide kasumi_determined
-            show kasumi_curious
+            hide old_kasumi_determined
+            show old_kasumi_curious
             ka "What do you play?"
             user "I play trumpet."
-            hide kasumi_curious
-            show kasumi_excited
+            hide old_kasumi_curious
+            show old_kasumi_excited
             ka "Wow! Amazing, amazing! I've not met someone who has played trumpet!"
-            hide kasumi_excited
-            show kasumi_idle
+            hide old_kasumi_excited
+            show old_kasumi_idle
             jump after_menu
         #RISKY OPTION ; +- AFFECTION
         "Bonsai":
             # A label isn't really needed here, plus it uses less resources.
-            hide kasumi_excited
-            show kasumi_curious
+            hide old_kasumi_excited
+            show old_kasumi_curious
             ka "Bon...sai?"
-            hide kasumi_curious
-            show kasumi_idle
+            hide old_kasumi_curious
+            show old_kasumi_idle
             ka "Ah, ah! I know! That's what Arisa likes!"
             "She knows Arisa? I didn't think Arisa would be able to stand people like her, maybe I was wrong."
-            hide kasumi_idle
-            show kasumi_curious
+            hide old_kasumi_idle
+            show old_kasumi_curious
             ka "Hey hey! Give me a bonsai style!"
             menu:
                 #BEST CHOICE
                 "Chokkan.":
                     $ affection = affection + 5
                     user "Chokkan is probably one of the most common."
-                    hide kasumi_curious
-                    show kasumi_idle
+                    hide old_kasumi_curious
+                    show old_kasumi_idle
                     user "Chokkan trees have upright trunks, like ones in nature, and are considered pretty formal."
                     jump after_menu
                 #BAD CHOICE
                 "Rikka.":
                     $ affection = affection - 5
                     user "Rikka is a popular one."
-                    hide kasumi_curious
-                    show kasumi_idle
+                    hide old_kasumi_curious
+                    show old_kasumi_idle
                     user "It has nine branches to show parts of nature and how beautiful it is."
                     jump after_menu
                 #WORST CHOICE
                 "Ikebana.":
                     $ affection = affection - 10
                     user "Ikebana is a good one."
-                    hide kasumi_curious
-                    show kasumi_idle
+                    hide old_kasumi_curious
+                    show old_kasumi_idle
                     user "Ikebana is an arrangement which give life to flowers!"
                     "Wait, is this really bonsai? Oh well, Kasumi doesn't seem to notice the difference so it will be fine."
                     jump after_menu
@@ -412,18 +413,18 @@ label hostClubHanasaki:
     label after_menu:
         #GUEST LEAVES
         hide Kasumi
-        hide kasumi_idle
-        show kasumi_determined
+        hide old_kasumi_idle
+        show old_kasumi_determined
         ka "Anyway, let me tell you about myself instead!"
-        hide kasumi_determined
+        hide old_kasumi_determined
         "Kasumi talks about the iconic moment of her life when she went to see the stars."
         show kasumi_idle
         ka "That was fun!"
-        hide kasumi_idle
-        show kasumi_wave
+        hide old_kasumi_idle
+        show old_kasumi_wave
         ka "Bye bye!"
         user "Thank you for coming!"
-        hide kasumi_wave
+        hide old_kasumi_wave
         "Kasumi left with a smile on her face"
         jump arisa_reaction
     return
@@ -433,54 +434,54 @@ label hostClubHanasaki:
     label arisa_reaction:
         # + AFFECTION
         if (affection > 0):
-            show arisa_happy
+            show old_arisa_happy
             a "You know about bonsai trees?"
             user "Ah, yes!"
-            hide arisa_happy
-            show arisa_cross
+            hide old_arisa_happy
+            show old_arisa_cross
             a "I mean, of course you'd KNOW of them, but..."
-            hide arisa_cross
-            show arisa_impressed
+            hide old_arisa_cross
+            show old_arisa_impressed
             a "I didn't think YOU would know what Chokkan was!"
-            hide arisa_impressed
+            hide old_arisa_impressed
             "Arisa walks away, grinning to herself. She seems impressed. I must have made a good impression!"
             jump showAffection
         # NETURAL AFFECTION
         elif affection == 0:
-            show arisa_happy
+            show old_arisa_happy
             a "You didn't do too bad there."
-            hide arisa_happy
-            show arisa_cross
+            hide old_arisa_happy
+            show old_arisa_cross
             a "But don't think that means you can slack off! There's always room for improvement!"
-            hide arisa_cross
+            hide old_arisa_cross
             "Arisa is the same as always"
             jump showAffection
         # - AFFECTION
         elif (affection < 0) and (affection > -6):
-            show arisa_cross
+            show old_arisa_cross
             a "You know Rikka is flower arrangement, right?"
             user "Huh?"
-            hide arisa_cross
-            show arisa_angry
+            hide old_arisa_cross
+            show old_arisa_angry
             a "You know? Rikka is part of Ikebana!"
             user "I must have mixed the two up! Good thing Kasumi didn't notice!"
-            hide arisa_angry
-            show arisa_sad
+            hide old_arisa_angry
+            show old_arisa_sad
             a "Yeah..."
-            hide arisa_sad
+            hide old_arisa_sad
             "Arisa walks off, disappointed."
             jump showAffection
         # -- AFFECTION
         else:
-            show arisa_angry
+            show old_arisa_angry
             a "Are you stupid? An idiot can tell the difference between flower arranging and bonsai!"
-            hide arisa_angry
-            show arisa_cross
+            hide old_arisa_angry
+            show old_arisa_cross
             a "I expected more from you, jeez!"
-            hide arisa_cross
+            hide old_arisa_cross
             "Arisa storms off, she is really mad!"
-            jump Tae
             return
+        jump Tae
 
 #TAE START
 #tae is said to start after school so put code here. added variable so this is triggered if player is in hanasakigawa (COOKIE)
@@ -493,7 +494,7 @@ label Tae:
     "Draped over the Hanasakigawa high school uniform is waist-length dark hair."
     "I don’t know many people with waist-length hair in high school, yet on this girl it works like a charm."
     hide tae_smile
-    show tae_awe
+    show tae_glad
     $ ta = "Dark-haired girl"
     ta "mn… you are so cute..."
     "For some reason I’ve been seized by an urge to take this girl into my arms and protect her from all the evils in the world."
@@ -503,21 +504,21 @@ label Tae:
     "I rush towards her."
     with hpunch
     user "Stop! Thief!"
-    hide tae_awe
-    show tae_surpise
+    hide tae_glad
+    show tae_curious
     ta "Huh? I’m not a thief."
     "She looks as if she has more to say, but trails off at the sight of a lop eared rabbit snuffling her hand."
-    hide tae_surpise
+    hide tae_curious
     show tae_smile
     "She ignores me altogether and pets the creature."
     user "You know stealing is bad right?"
     hide tae_smile
-    show tae_idle
+    show tae_serious
     ta "Who doesn’t?"
     "She still goes to get more rabbits out of the cage."
     user "What if the middle school kids knew you were stealing their rabbits? Worse still, the teachers? You could get suspended, you could get expelled, you could-"
-    hide tae_idle
-    show tae_affirm
+    hide tae_serious
+    show tae_smile
     ta "They know."
     "She cuddles the rabbit, not seeming concerned with my accusations." #adding new monologe for the ** parts (COOKIE)
     user "What? And they are okay with that?"
@@ -529,55 +530,51 @@ label Tae:
         "I guess I transferred to a different planet. Girls’ schools are an ...experience. If I slapped myself this will all be my imagination and whoever this girl is will not be stealing bunny rabbits from 13 year olds."
     else:
         pass
-    hide tae_affirm
-    show tae_smile
     ta "Yeah, You can feed them too, you know?"
     user "That’s why i sai- huh? What?"
     "She fumbles around in her pocket to reveal carrot sticks."
     hide tae_smile
-    show tae_affirm
+    show tae_serious
     ta "Now hold him for me."
     "The lop eared rabbit in my lap is brown. Fluffy. Surprisingly warm, and a good bit heavier than I imagined."
     user "Eh? So you are not going to steal them?"
     "It sniffs the air and snuggles close to me as if in response."
-    hide tae_affirm
-    show tae_surpise
+    hide tae_serious
+    show tae_curious
     ta "Why would i do that? How could I do such a cruel thing to them?"
     "So she isn’t stealing them…?"
     "She wanted to take them home. I saw her open the cages with my own two eyes. I saw her taking them from the cages. She has carrot sticks with her. There’s only one reason she could be doing th-"
     "How has it never occured to me that she didn’t actually mean to take the rabbits home?{p}...Fuck me. "
     "It’s an age-old habit of mine, jumping to conclusions and embarrassing myself."
     "Maybe I should’ve listened to my thirteen-year-old self and gone through with my plans to disappear into some uncharted cave and die."
-    hide tae_surpise
-    show tae_idle
+    hide tae_curious
+    show tae_serious
     ta "There, there. Eat up, Fluffycheeks!"
     user "...Fluffycheeks?"
     "I watch in a trance as Fluffycheeks eats up."
     "I wish I was anywhere but right in front of this girl."
-    hide tae_idle
+    hide tae_serious
     show tae_smile
     ta "Good boy."
     "I gingerly reach out a hesitant finger to pet Fluffycheeks on its head."
     with fade
     "Long minutes tick by, and eventually she returns all the rabbits to their hutch with a kiss on their foreheads."
     hide tae_smile
-    show tae_awe
+    show tae_glad
     ta "Good boy."
     "She puts the last rabbit in its cage and closes it."
-    hide tae_awe
-    show tae_affirm
+    hide tae_glad
+    show tae_smile
     ta "Thank you for helping me feed them."
     user "Eh? Ah... You’re welcome."
-    hide tae_affirm
-    show tae_thought
+    hide tae_smile
+    show tae_thinking
     ta "Hmm.. By the way..."
     "Is she going to make fun of me for what happened?"
-    hide tae_thought
-    show tae_affirm
+    hide tae_thinking
+    show tae_smile
     $ ta = "Tae"
     ta "My name is Hanazono Tae."
-    hide tae_affirm
-    show tae_smile
     ta "Hope we meet again."
     hide tae_smile
     user "Ah...yes..."
@@ -608,15 +605,15 @@ label arisa:
     a "Is that so?"
     a "Then I guess you won’t mind if I count them."
     "Uh-oh. She’ll notice that there’s one missing."
-    show arisa_angry
+    show old_arisa_angry
     "Before I could even think about pulling the photo out, her glaring eyes had told me it was too late."
     a "Where’s Tamagawa?"
-    hide arisa_angry
+    hide old_arisa_angry
     "Tamagawa? That’s a weird way to ask for the photo."
     user "Is that the name of the photo?"
-    show arisa_cross
+    show old_arisa_cross
     a "It’s not the name of the photo, it’s the name of my bonsai tree in that photo"
-    hide arisa_cross
+    hide old_arisa_cross
     user "So this tree is named Tamagawa?"
     "I took out the photo and gave it back to her."
     user "Do the other trees have names?"
@@ -639,7 +636,7 @@ label arisa:
     "Ah! That’s right! I was supposed to buy lunch."
     "Hopefully there’s still to time to get something."
     "And with that, I sprinted towards the cafeteria."
-    jump hostClubHanasaki
+    jump Tae
 
 label hostClubHaneoka:
     hi "Whoops, looks like there's nothing here yet. Come back later."
