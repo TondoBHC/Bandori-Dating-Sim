@@ -11,7 +11,7 @@ define p = Character("Player")
 $ affection = 0
 
 #I've adjusted the indentation so it fits better with the already existing code.
-label hostClub
+label hostClub:
     # GUEST(S) ARRIVE
     user "(It looks like a guest just arrived. I better go and impress them!)"
     show kasumi_wave
