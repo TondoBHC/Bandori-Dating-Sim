@@ -490,11 +490,11 @@ label Tae:
     "I think i should make my way home now."
     "Huh…?"
     "Walking past it I notice a girl in the middle school pet room."
-    show tae_smile
+    show tae w_smile
     "Draped over the Hanasakigawa high school uniform is waist-length dark hair."
     "I don’t know many people with waist-length hair in high school, yet on this girl it works like a charm."
-    hide tae_smile
-    show tae_glad
+    hide tae w_smile
+    show tae w_glad
     $ ta = "Dark-haired girl"
     ta "mn… you are so cute..."
     "For some reason I’ve been seized by an urge to take this girl into my arms and protect her from all the evils in the world."
@@ -504,21 +504,21 @@ label Tae:
     "I rush towards her."
     with hpunch
     user "Stop! Thief!"
-    hide tae_glad
-    show tae_curious
+    hide tae w_glad
+    show tae w_curious
     ta "Huh? I’m not a thief."
     "She looks as if she has more to say, but trails off at the sight of a lop eared rabbit snuffling her hand."
-    hide tae_curious
-    show tae_smile
+    hide tae w_curious
+    show tae w_smile
     "She ignores me altogether and pets the creature."
     user "You know stealing is bad right?"
-    hide tae_smile
-    show tae_serious
+    hide tae w_smile
+    show tae w_serious
     ta "Who doesn’t?"
     "She still goes to get more rabbits out of the cage."
     user "What if the middle school kids knew you were stealing their rabbits? Worse still, the teachers? You could get suspended, you could get expelled, you could-"
-    hide tae_serious
-    show tae_smile
+    hide tae w_serious
+    show tae w_smile
     ta "They know."
     "She cuddles the rabbit, not seeming concerned with my accusations." #adding new monologe for the ** parts (COOKIE)
     user "What? And they are okay with that?"
@@ -533,50 +533,50 @@ label Tae:
     ta "Yeah, You can feed them too, you know?"
     user "That’s why i sai- huh? What?"
     "She fumbles around in her pocket to reveal carrot sticks."
-    hide tae_smile
-    show tae_serious
+    hide tae w_smile
+    show tae w_serious
     ta "Now hold him for me."
     "The lop eared rabbit in my lap is brown. Fluffy. Surprisingly warm, and a good bit heavier than I imagined."
     user "Eh? So you are not going to steal them?"
     "It sniffs the air and snuggles close to me as if in response."
-    hide tae_serious
-    show tae_curious
+    hide tae w_serious
+    show tae w_curious
     ta "Why would i do that? How could I do such a cruel thing to them?"
     "So she isn’t stealing them…?"
     "She wanted to take them home. I saw her open the cages with my own two eyes. I saw her taking them from the cages. She has carrot sticks with her. There’s only one reason she could be doing th-"
     "How has it never occured to me that she didn’t actually mean to take the rabbits home?{p}...Fuck me. "
     "It’s an age-old habit of mine, jumping to conclusions and embarrassing myself."
     "Maybe I should’ve listened to my thirteen-year-old self and gone through with my plans to disappear into some uncharted cave and die."
-    hide tae_curious
-    show tae_serious
+    hide tae w_curious
+    show tae w_serious
     ta "There, there. Eat up, Fluffycheeks!"
     user "...Fluffycheeks?"
     "I watch in a trance as Fluffycheeks eats up."
     "I wish I was anywhere but right in front of this girl."
-    hide tae_serious
-    show tae_smile
+    hide tae w_serious
+    show tae w_smile
     ta "Good boy."
     "I gingerly reach out a hesitant finger to pet Fluffycheeks on its head."
     with fade
     "Long minutes tick by, and eventually she returns all the rabbits to their hutch with a kiss on their foreheads."
-    hide tae_smile
-    show tae_glad
+    hide tae w_smile
+    show tae w_glad
     ta "Good boy."
     "She puts the last rabbit in its cage and closes it."
-    hide tae_glad
-    show tae_smile
+    hide tae w_glad
+    show tae w_smile
     ta "Thank you for helping me feed them."
     user "Eh? Ah... You’re welcome."
-    hide tae_smile
-    show tae_thinking
+    hide tae w_smile
+    show tae w_thinking
     ta "Hmm.. By the way..."
     "Is she going to make fun of me for what happened?"
-    hide tae_thinking
-    show tae_smile
+    hide tae w_thinking
+    show tae w_smile
     $ ta = "Tae"
     ta "My name is Hanazono Tae."
     ta "Hope we meet again."
-    hide tae_smile
+    hide tae w_smile
     user "Ah...yes..."
     "I come to my senses, but Hanazono Tae has disappeared without a trace."
     jump showAffection
