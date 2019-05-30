@@ -1,0 +1,118 @@
+
+label hostClubIntroHaneoka:
+#written by cookie
+    "Classes are still a drag, and I’m relieved when the bell rings. The hallways are loud and swarming with people, so I just try and blend in."
+    "I look around the hallway for those colourful characters from yesterday but they are nowhere in sight."
+    "Oh right! I almost forgot that there was a library, so I can camp out there for the rest of break until I meet new people."
+    "I trail along to the library and see a colourful poster on the door."
+    "For a poster made by high schoolers, it’s surprisingly full of spirit and creativity. It’s so detailed that the drawings remind me of something, but what?"
+    "The host club! I clap my hands and rush over to the club room specified on the poster, the jolt in my body resounding in my footsteps. I beam at the clubroom door, and yank it open."
+    user "Holy shit."
+    "It’s official, Haneoka is made of money if they can support THIS kind of room. It must’ve costed a fortune."
+    "My eyes hunt the room for Tomoe and her blazing red hair, but I’m instead met with electric blue hair."
+    show hina w1_idle
+    "Hina drifts around the room, humming blissfully. It’s almost like she isn’t carrying a heavy box; it’s impressive that she can move so weightlessly. She seem to do everything so effortlessly..."
+    "She seems oblivious to my presence, and I begin to wonder if it would be best if I just left. Afterall, I feel like I’ve just rushed into this, I haven’t even planned on what to say."
+    "But just as I was about to leave..."
+    hide hina w1_idle
+    #need suprised hina sprites - more hina expressions
+    show hina w2_idle
+    h "Wah! Hey, hey! Do we have a guest?"
+    "Hina’s box dives to the ground, the items knocked out messily. She stares at me, incredulously, before her eyes twinkle wildly."
+    hide hina w2_idle
+    show hina w1_idle
+    "In a fever, she swings herself over to me, and snatches my hands up, grinning. She dances maniacally around the room, spinning me around, beaming brightly all the way."
+    "I slump onto the couch she swivels me onto and catch my breath – does she greet every guest this way? Hina is still breathless, but is bouncing on her like nothing ever happened."
+    $ k = "???"
+    k "Ah, what’s this? A guest you say?"
+    "Hina veers toward the captivating voice. A familiar voice."
+    hide hina w1_idle
+    show hina w1_idle at right
+    #only using this kaoru sprite to show her presence (will change when artist finishes kaoru sprites)
+    show old_karou_idle at left
+    $ k = "Kaoru"
+    "My head shoots up, and my glance meets the tall, suave Kaoru yet again. She slides next to me, brushing herself against me."
+    "Strangely, my dizziness seems stronger with Kaoru’s allure than with Hina spiralling me around the room, but I digress."
+    user "Actually, I’m not here as a, er..., guest. I’m here to -!"
+    "A squirm slips out of my mouth as I feel warm hands enveloping in mine. Shakily, my head slowly shifts to Kaoru, who winks at me as she caresses my hand."
+    user "Gak!"
+    "I whimper out, as Kaoru boldly sneaks a kiss at my hand. My face must be as red as a tomato. Kaoru laughs at my reaction."
+    k "I’m glad you came to the host club, my little kitten."
+    #**cg time
+    hide old_karou_idle
+    hide hina w1_idle
+    window hide
+    # (CG OF KAORU KISSING MC’S HAND WITH HINA NEXT TO MC)
+    show placeholder_karou_cg with fade
+    $ renpy.pause ()
+    #game continues when player clicks
+    window show
+    h "Aha! You’re totally boppin’ too, aren’t you, Kaoru?"
+    "Hina’s voice thunders in my ears, reminding me of her presence. Her hands bounce onto my thigh, and I yelp yet again, not being used to all this flirting and attention."
+    k "I feel it, this boppin’-ness. Ah, how fleeting!"
+    "Hina’s hands crush into my thighs further and my whole body becomes impossibly hot."
+    h "Hey, are you boppin’ too?"
+    user "I, um…yes?"
+    hide placeholder_karou_cg
+    #**cg time ended
+    show hina w2_idle at right
+    show old_karou_idle at left
+    "Hina’s arms rocket into the air in celebration. Thank god, I had a feeling that I was about to go on fire!"
+    h "Woo-hoo! Now, all we need is Tomoe…Huh? She’s not here?"
+    k "Tomoe is still working. My, what a hard worker."
+    hide hina w2_idle
+    hide old_karou_idle
+    show tomoe s_idle3
+    t "Hey, aren’t we not supposed to be accepting guests right now?"
+    "I look up to see Tomoe. When our eyes meet, she bats her eyes before apologetically smiling at me, realising the situation."
+    hide tomoe s_idle3
+    show tomoe s_idle1
+    t "Ah, [user]-san! I didn’t expect you to take up the offer that quickly!"
+    hide tomoe s_idle1
+    show old_karou_idle at left
+    show tomoe s_idle1 at right
+    k "Ah, was this little kitten prompted to come here by dear Tomoe?"
+    hide tomoe s_idle1
+    show tomoe s_idle3 at right
+    t "Er, yes and no. Yes, I prompted them to come here because I thought we could use a few extra hands."
+    hide old_karou_idle
+    show hina w2_mad at left
+    h "Jeez, who just wants to lift heavy boxes all the time. I’m sooo bored tidying up! Wah, when can we start the guest thing again?"
+    user "Er, can I just say that actually, I’m here to help out."
+    hide tomoe s_idle3
+    hide hina w2_mad
+    show hina w2_idle at left
+    show old_karou_idle at right
+    "Kaoru and Hina halt, and dart their eyes towards me. Kaoru presses her hand against her throat and chuckles heartily, although Hina’s eyebrows squish together, confounded."
+    k "A host, I see…I see…"
+    "Kaoru’s smile fades and she rubs her chin, thoughtfully…"
+    k "Well, welcome to the club!"
+    "Just like that? I smirk to myself, happy that it was easier to get in than I expected."
+    hide hina w2_idle
+    show hina w1_idle at left
+    h "Uh, I don’t have a problem or anything, but why do you want to join?"
+    "Hina tilts her head and inquisitively watching at me, grinning eagerly. I fumble, fidgeting with my tie."
+    user "Well, I want to make friends!"
+    h "Hmm, but why the host club?"
+    user "You see, I’ve…I’ve always been kind of a nobody. I never really knew how to make friends, so being a host, to me, is like…a chance to meet new people?"
+    "The room falls silent, and I feel everyone staring at me. I cringe and break the silence with a bark of nervous giggles."
+    user "Gah, I know it’s weird, but…I want to do this."
+    "This pause is killing me, when is anyone going to speak?"
+    #**cg time
+    hide old_karou_idle
+    hide hina w1_idle
+    window hide
+    #(CG of Tomoe showing her hand to the player)
+    show placeholder_karou_cg with fade
+    $ renpy.pause ()
+    #game continues when player clicks
+    window show
+    t "Welcome to the host club, [user]-san!"
+    user "Eh? Really?"
+    k "What tragic yet endearing reasoning, but as they say, ‘catastrophe is the gift of allure.’"
+    "I subtly roll my eyes, did anyone really say that?"
+    h "Uh-huh, I think I get it now. Man, people are so interesting! It’s so totally zappin’!"
+    hide placeholder_karou_cg
+    #**cg time ended
+    return
+    #NEED HELP WITH: PLACING SPRITES. RIGHT NOW THE PLACEMENT IS PRETTY BAD SO I NEED HELP DO IT EFFECTIVELY. THE IF STATEMENTS MESSED UP AGAIN SO I NEED THOSE FIXED. EVERYTHING ELSE IS FINE(?) I THINK.
