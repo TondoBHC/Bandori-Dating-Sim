@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 init python:
     def max_points(*values):
@@ -91,7 +91,7 @@ label start:
     "I do miss my old ones, but they did say our friendship was over until I made at least 3 new friends so it\'s do or die."
     "I wonder what type of people go there. Maybe some cool rocker punks, or maybe some pure cinnamon buns, or maybe..."
     mom "Honey it\'s already 8 o\'clock, you don\'t want to be late on your first day, do you?"
-    "WHAT!? Oh shit, it is already 8! This is bad, I better hurry the fuck up or I\'ll make a bad first impression."
+    "WHAT!? It's already 8, damn it! This is bad, I better hurry up or I\'ll make a bad first impression."
     user "Coming!"
     stop music
     play music "music/Finder_Prism_and_Lens.mp3"
