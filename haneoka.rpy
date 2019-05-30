@@ -46,7 +46,7 @@ label fd_haneoka: # First day at Haneoka (Kaoru, Tomoe, Hina)
     "Her voice sounded familiar though{w}...Ah."
     #There was a new paragraph created just for the closing parenthesis, I don't know if that's what you intended but it looked kinda odd, so I removed it.
     #Thank for editing - was supposed to be wait. Changed. (COOKIE)
-    "I remember that someone said “Thirteen” which surprised me and made me lose my balance. Her voice was the same voice."
+    "I remember that someone said "Thirteen" which surprised me and made me lose my balance. Her voice was the same voice."
     user "Although I wouldn’t have tripped if you didn’t surprise me by calling out ‘Thirteen’ like that..."
     hide old_karou_idle
     show old_karou_suprised
@@ -244,5 +244,121 @@ label hostClubIntroHaneoka:
     hide placeholder_karou_cg
     #**cg time ended
     call showAffection
+    jump day5
     return
-    #NEED HELP WITH: PLACING SPRITES. RIGHT NOW THE PLACEMENT IS PRETTY BAD SO I NEED HELP DO IT EFFECTIVELY. THE IF STATEMENTS MESSED UP AGAIN SO I NEED THOSE FIXED. EVERYTHING ELSE IS FINE(?) I THINK.
+    #NEED HELP WITH: PLACING SPRITES. RIGHT NOW THE PLACEMENT IS PRETTY BAD SO I NEED HELP DO IT EFFECTIVELY. THE IF STATEMENTS MESSED UP AGAIN SO I NEED THOSE FIXED.
+    #EVERYTHING ELSE IS FINE(?) I THINK.
+
+    #day 5 start
+    #written by cookie
+    label day5:
+        "When I go to the host club this time, it’s different. I can hear the guests from just outside the door. They're making a lot of noise, but I can tell it’s because of all the fun they’re having. I have to take a deep breath before entering."
+        "As expected, the host club is swarming with guests, but more than I expected. Without realising, I have shuffled back towards the door and closed myself in to watch the crowds and crowds of guests."
+        "I am absorbed by how well my fellow members are doing."
+        "Tomoe is talking with such engagement and heart to her guests. Hina’s gestures are vivid and full of energy with her guests; Kaoru is courteous and confident as always.
+        To think, I used to feel good about calling them my fellow members. I never knew that they were this much of a big deal."
+        h "Hi hi, [user]!"
+        "I jump at Hina’s voice, and she dashes across the room to meet me."
+        h "What’s up, what’s up? Isn’t it boppin’ in here!"
+        user "I-I guess!"
+        h "Mm-hmm! Yo, can you do something for me real quick!"
+        user "Uh, sure! Sure! Er, what is it exactly?"
+        #there is supposed to be fast text here
+        h "So did you know I like astronomy? I need you to clean the lenses of my telescope, it’s on the rooftop! {nw}TheschooldoesntreallycaresoIjustleaveituptherebytheway.Thestarsaretotallyzappin’andmyheartrusheswheneverIseethemsothatiswhyineedmylensescleanedlistencloselythoughtheyneedspecialwipesorthey’llgetmuckysoilefttheminmylockermylockercodeis0320,mybirthdaybutthat’sasecretmybirthdayisn’tthoughitbeboppinifwecouldcelebrateitsomedayathehostclub!{fast}"
+        h "I hope you got all that!"
+        "Not at all!"
+        user "Do you mind running it by me again. Argh, I guess it’s just noisy in here or something…"
+        gu "Hina! Hina! I wanna hear about your sister more!"
+        h "Guh! I wanna go and talk about sister again! See you, (USER)!"
+        user "Wait, Hina, the thing is-!"
+        "Crap, she’s already away. Well, the least I can do is try my best."
+        "On the bright side, the walk to the rooftop relaxes me from the hectic host club. But now, I only can guess what Hina was trying to say. I can only really use my glasses wipes to clean the lenses, I suppose."
+        #(MINIGAME – NO WAY TO WIN. CONCEPT: PLAYER HAS TO WIPE IN CERTAIN MOTIONS BY FOLLOWING A PATTERN WITH THEIR MOUSE. EACH PATTERN COULD BE TOO COMPLICATED)
+        "I head back to the host club to see that it still hasn’t calmed down. Tomoe beckons me over."
+        t "Hey! I was hoping that you could deal with these guests! I’m sure it’ll be great for you!"
+        "She directs me over to a group of girls. I see a friendly smile on her face before she returns to her group. At least that smile gives me the confidence to deal with these guests. I face them with a beam."
+        "But I only see they are glaring at me."
+        gu1 "Ugh, are we really with the newbie?"
+        gu2 "Tchah, I wanted Tomoe. I was getting excited then."
+        gu3 "Pff, let’s just go."
+        user "Excuse me!"
+        "The girls, who were leaving, spin around to look at me, with faces of disgust."
+        user "I really think you should give me a chance! I won’t disappoint!"
+        gu2 "Gak, so desperate."
+        gu1 "I mean, I suppose though?"
+        user "Mm-hmm! I’ll find a good seat!"
+        "I search the room for a seat. Weirdly enough, I find a tranquil corner by the window. Perfect! However, the guests still looked distain by my presence."
+        gu3 "So, ugh, what is it?"
+        user "Well, is there anything in particular you all would like to talk about?"
+        gu1 "No way. We came here to be charmed, not quizzed."
+        user "Oh, well, let me take the lead."
+        "I fumble for a conversation topic. I guess this is why Hina, Kaoru and Tomoe have their charm and I don’t. Really, I’m a boring person and they’re so interesting."
+        gu2 "Jeez, this is what you get with newbies, not knowing what to say."
+        gu1 "You know there is a reason they don’t let in members usually-!"
+        user "How about some tea?"
+        gu3 "Tea made by Hina sounds good."
+        gu1"Alright, go ahead. Impress me, you host!"
+        "The guests burst into a rude laughter. I pick up the tea blend left on the table and begin pouring the guests a cup."
+        gu1 "Gross, are you using the one left out!"
+        gu2 "Those are the worst ones!"
+        gu2 "I’ve had enough, let’s just go!"
+        user "No, wait!"
+        "I rush up to stop them, but instead…"
+        gu3 "Argh! Crap! You…You just spilled tea over my uniform!"
+        "The guest is so loud that every turns to us. Including Kaoru. Including Hina. Including Tomoe."
+        gu1 "Let’s go already!"
+        gu2 "Good idea."
+        "The guests leave, still glaring at me. It feels like everyone is glaring at me now. It feels like everyone knows that I am not a good host. So, I stay sitting down, defeated.
+        Before I know it, the event is over and I’ve only interacted once. I’ve stay seated for most of the time, my head down. My head doesn’t rise when I hear footsteps."
+        t "[user], are you okay? Is anything up?"
+        k "Hmm, that was…unexpected. Do you have a cold, kitten?"
+        "Hina barges into the conversation after running back into the room."
+        h "I thought I told you to use the special wipes, [user]. I didn’t think it was that hard!"
+        t "Come on, Hina, I’m sure it’s not that bad."
+        h "It is! My lenses are really blurry! But I’ll fix them later on!"
+        k "Hmm, I guess then…"
+        "I look up to see the others looking at each, apprehensive. I know what they are thinking, so I stand up, shoving all the spotlight onto me."
+        user "Wait, I need to explain somethings. You see, I know as a host I should be ready to deal with anything, but those guests were really rude to me!"
+        "I explain myself to the others. When I’m done, they exchange glances, not knowing how to take in the information. Tomoe closes her eyes, and nods."
+        t "Hina, perhaps you were too quick with your instructions. It was busy and I’m sure [user] didn’t mess up your lenses on purpose!"
+        h "Yeah, I’m sorry, but I didn’t really see that."
+        k "Aha, you see, Hina, every kitten is different and deal with things differently! We can’t be as, uh, 'boppin’' as you!"
+        h "Yeah, you’re right. Sorry, [user], but you’re not really like me!"
+        t "That’s not much of an apology, but I suppose it will do. [user], I’m sorry I paired you up with such rude guests. I promise I’ll do everything in my power to prevent that happening to you again."
+        k "…Oh, Tomoe? Do you not get it?"
+        t "Er, get what?"
+        "Kaoru crosses her arm, and thoughtfully smirks to herself."
+        k "Every kitten is different. And the guests, there are kittens too. Kittens can be kind but others can be mean. But they’re still kittens. And this little kitten should learn to play with other kittens."
+        "Kaoru opens her eyes and draws herself closer to me. Damnit, my face is on fire again!" "When will Kaoru ever give me a break?"
+        k "Are you free this weekend?"
+        user "Um, I do have…er, I guess?"
+        k "Perfect, so how about…I teach you about my heart!"
+        user "E-Eh?"
+        t "Um, Kaoru, don’t do that to [user]!"
+        k "Pff, I’m suppose I’m being unfair. [user] should have a choice who they go on a date with!"
+        user "A-A date?"
+        t "Hold up, none of us have agreed to this. Um, expect…Hina?"
+        h "Wow! I’ve never been on a date before! It sounds really…zappin’! I wanna go, I wanna go!"
+        k "Haha, don’t get too excited now. It’s only a date for experience, so [user] can appreciate the hearts of all kittens, starting with ourselves."
+        t "I mean, if it’s alright with [user], I guess it’s alright. I mean, we’ll just be hanging out…like with our guests?"
+        k "It’s only a learning experience, precisely, but it will help [user] understand the mysteries of the heart. So, [user], who do you choose?"
+        #**
+        menu:
+            k "It’s only a learning experience, precisely, but it will help [user] understand the mysteries of the heart. So, [user], who do you choose?"
+            "Kaoru":
+                #Choice 1: Kaoru
+                user "Well, since you suggested it, I think you, Kaoru."
+                k "M-Me? Uh, I mean, good choice! Who’s better than me to teach you about the wonders of the heart?"
+            "Hina":
+                    #Choice 2: Hina
+                    user "I choose you, Hina!"
+                    h "Yay! I’ve always wanted to go on a date! We could go to the zoo, or the park, or to the amusement park! Wow, so many options! My heart is zappin’ out of my chest!"
+            "Tomoe":
+                        #Choice 3: Tomoe
+                        user "I hope you don’t mind, but I think Tomoe would be…best."
+                        t "Er, yeah, I don’t really mind. I hope this is not too embarrassing for you, [user]. If it is, just think of it as hanging out! Yeah! Just two friends hanging out!"
+                        #after choices
+                        label afterMenu:
+                            k "It is decided that the date will meet this Sunday! Fufu, this will truly be an interesting lesson for our little kitten here!"
+                            user "I-I suppose it will be."
+                            return
