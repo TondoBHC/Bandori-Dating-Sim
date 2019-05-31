@@ -1,17 +1,17 @@
 label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
 #SAYO START
-    principal "Oh [user], such a deep reason! Surely Hanasakigawa is a school with many loving memories from past generations!"
+    principal "Oh [user] , such a deep reason! Surely Hanasakigawa is a school with many loving memories from past generations!"
     "Hopefully I\'ll get to make some loving memories of my own."
     principal "Now then, let me get some paperwork sorted out and you can be on your way."
     user "Is it okay if I explore the school a bit, to familiarize myself with it that is."
     principal "Actually, we have a volunteer student who\'s very excited to show you around the school, hopefully, she could be your first friend."
     principal "Her name is Sayo Hikawa, and she should be arriving here any moment now."
     s "Excuse me, sorry for being late, I was caught up doing some work."
-    principal "Oh don\'t worry about that, I was just telling [user] here about you."
-    s "I see, [user] is it?"
+    principal "Oh don\'t worry about that, I was just telling [user]  here about you."
+    s "I see, [user]  is it?"
     user "Ah yes, I\'m [fullName]. It\'s a pleasure to meet you."
     principal "Marvelous, I can tell you two are going to be great friends!"
-    principal "Now then, [s], why don\'t you take [user] on a tour of the school while I finish up some work of my own."
+    principal "Now then, [s], why don\'t you take [user]  on a tour of the school while I finish up some work of my own."
     s "Of course, [last_name], after you."
     "We step outside of the teachers lounge and into the empty hallway, presumably because everyone is in class."
     "For a, not-so-brief, moment we stare each other down like lions in a pit."
@@ -24,7 +24,7 @@ label fd_hanasakigawa: # First day at Hanasakigawa (Tae, Arisa, Sayo)
     "Hopefully that was nothing to her…?"
     "Our first stop is what looks like their school library."
     s"This is the library. The books range from print to electronic, all books arranged according to the Dewey Decimal…"
-    "The poster on the other wall reads “Literature Club: Making Poetry Lovers Doki Doki Since 2017”."
+    "The poster on the other wall reads 'Literature Club: Making Poetry Lovers Doki Doki Since 2017'."
     "It looks very familiar."
     "My thoughts drown out her voice, and it’s too late when I realise this. Sayo looks as if she’s going to eat me alive."
     "She merely sighs and shakes her head."
@@ -235,7 +235,7 @@ label hostClubIntroHanasaki:
     "Arisa and Tae are at the doorway, and they are arguing over something. I slink behind the door, not wanting to get involved."
     a "Are you stupid? You can’t bring your rabbits into the host club?"
     ta "I don’t see why not. They’ll be a cute addition to the host club."
-    a "But they’ll make a mess! And what about allergies, have you thought about that?" 
+    a "But they’ll make a mess! And what about allergies, have you thought about that?"
     ta "No one is allergic to rabbits."
     s "Hey, you know we’re closed. We did put up a sign, didn’t we?"
     "Sayo intensely stares straight at me, attracting Tae’s and Arisa’s attention to me too. I fumble into the clubroom, and clear my throat. Sayo looks more annoyed."
@@ -247,29 +247,173 @@ label hostClubIntroHanasaki:
     user "No, no! I mean…I want to be a host too?"
     "They all go silent. Sayo closes her eyes and beckons me over to a sofa. She sits down, and folds her leg over her knee, her hands over her legs. I go to sit next to her, but she halts me with a raised hand. "
     "When she opens her eyes, she looks furious."
+    #**cg time
+    #hide sprites
+    hide old_karou_idle
+    hide hina w1_idle
+    window hide
     #(CG OF SAYO DOING WHAT IS DESCRIBED ABOVE)
+    show placeholder_karou_cg with fade
+    $ renpy.pause ()
+    #game continues when player clicks
+    window show
     s "We don’t accept new hosts, it isn’t something you just walk into it. This is a privilege, do you understand?"
     "Sayo’s tone is as cold as her icy eyes, and she practically spits out frost."
     s "To think, that after your presentation yesterday, that you have the cheek to barge in here, demanding to be a host. This isn’t a game, you know!"
     user "I know this isn’t a game!"
+    #cg time end
+    hide placeholder_karou_cg
     "I have to stand my ground. I hold my chin high and clutch my fists together. Sayo looks at me expectantly; she does not falter."
-    user "I…I want to be as popular as you! I came here with no other reason to find my place, and if the host club can make me popular, then I can finally make friends! I’ve…I’ve been alone my entire life, and I’m not going to go by this opportunity!" 
+    user "I…I want to be as popular as you! I came here with no other reason to find my place, and if the host club can make me popular, then I can finally make friends! I’ve…I’ve been alone my entire life, and I’m not going to go by this opportunity!"
     unk "Then I see no problem."
     "I spin around to see Tae, who is still smiling in her absent-minded way. However, her face is gentle."
     ta "It’s been the three of us for a long time, I think a new student would mix things up. We don’t want our guests getting bored, no? What do you think, Arisa?"
     "Tae nudges Arisa, who is red with either anger or embarrassment – I can’t really tell. She huffs to the side. Tae beams at her reaction."
+    #**cg time
+    #hide sprites
+    hide old_karou_idle
+    hide hina w1_idle
+    window hide
     #(CG of Tae and Arisa)
+    show placeholder_karou_cg with fade
+    $ renpy.pause ()
+    #game continues when player clicks
+    window show
     a "W-Well, I mean…your story was too mopey! You didn’t need to give us your life story! But…yeah. I think Tae may, er, be making a…good…point."
     ta "See, Arisa thinks so too. She may not admit it, but she really agrees with me."
     a "N-No I’m not! Really, I’m on the verge of disagreeing now!"
+    #cg time end
+    hide placeholder_karou_cg
     "Tae narrows her eyes towards Sayo, who tries to maintain her hostility."
     ta "Now, Sayo, I understand your disagreement, but it’s two against one here. And I am the leader."
     "Sayo looks shaken up, bewildered. She pauses, like a deer in headlights. Eventually, she sighs, defeated."
     s "Fine, but only because it’s my responsibility as disciplinary committee member to make sure no student is isolated. And, I believe in democracy, so if you two want it that way…"
     "Sayo glares at me, severely, momentarily, before turning her attention back on Tae and Arisa."
-    s "…I guess it will be that way. Welcome to the host club, [user]."
+    s "…I guess it will be that way. Welcome to the host club, [user] ."
     ta "Okay, say it too Arisa."
-    a "Eh? Jeez, fine, welcome to the host club, [user]."
-    ta "’Kay, my go. Welcome to the host club, [user]. I’m glad to have you with us."
+    a "Eh? Jeez, fine, welcome to the host club, [user] ."
+    ta "’Kay, my go. Welcome to the host club, [user] . I’m glad to have you with us."
     call showAffection
+    jump day5hansaki
     return
+
+#day 5 - written by cookie
+label day5hansaki:
+    "When I go to the host club this time, it’s different. I can hear the guests from just outside the door. They making a lot of noise, but I can tell it’s because of all the fun they’re having. I have to take a deep breath before entering."
+    "As expected, the host club is swarming with guests, but more than I expected. Without realising, I have shuffled back towards the door and closed myself in to watch the crowds and crowds of guests."
+    "I am absorbed by how well my fellow members are doing."
+    "Tae is chitchatting with the guests, although she looks like she is still in a daydream. I assume she must be talking about something silly, as Arisa has that cynical charm in her face when she is looking at Tae. Sayo’s expertise is shining through, and the crowd of guests surrounding her bring out her elegance."
+    "To think, I used to feel good about calling them my fellow members. I never knew that they were this much of a big deal."
+    ta "Hey, [user]!"
+    "I jump at Tae’s voice, and she dashes across the room to meet me."
+    ta "You okay?"
+    user "Y-Yeah, great!"
+    ta "…Oh, okay! Look, I can you do me another favour?"
+    user "Uh, sure! Sure! It’s, er, to do with your rabbits."
+    #fast text occurs here - supposed to be unreadable for user. need help to do this.
+    ta "Yeah, you see, Oddie has been a really good this week so I wanted to treat him to a big meal! So, I want you to {nw}feedhimcarrotslettucecorianderbasilpizzayogurtdropsohandsomebrocoliifthereisanyandmaybesomecelerythat’sgoodtheylikeceleryyouknowchocolatemaysoundgoodbutrabbitsdon’tlikethatsoisupposenothuh.{fast}"
+    ta "Did you get that?"
+    "Not at all!"
+    user "Do you mind running it by me again. Argh, I guess it’s just noisy in here or something…"
+    gu "O-Tae! You didn’t finish your story about Oddie! I want you tell my friend, please?"
+    ta "I’m afraid I can’t. I trust that you can do it though!"
+    user "Wait, Tae, the thing is-!"
+    "Crap, she’s already away. Well, the least I can do is try my best."
+    "On the bright side, the walk to the rabbit pet room relaxes me from the hectic host club. But now, I only can guess what Tae was trying to say."
+    #(MINIGAME – NO WAY TO WIN. CONCEPT: PLAYER GETS FOOD OPTIONS TO FEED RABBIT AND DRAGS IT INTO PEN)
+    "I head back to the host club to see that it still hasn’t calmed down. Sayo beckons me over."
+    s "Deal with these guests, please."
+    "She directs me over to a group of girls. I see a faint smile on her face before she returns to her group. At least that smile gives me the confidence to deal with these guests. I face them with a beam."
+    "But I only see they are glaring at me."
+    gu1 "Ugh, are we really with the newbie?"
+    gu2 "Tchah, I wanted Sayo. I was getting excited then."
+    gu3 "Pff, let’s just go."
+    user "Excuse me!"
+    "The girls, who were leaving, spin around to look at me, with faces of disgust."
+    user "I really think you should give me a chance! I won’t disappoint!"
+    gu2 "Gak, so desperate."
+    gu1 "I mean, I suppose though?"
+    user "Mm-hmm! I’ll find a good seat!"
+    "I search the room for a seat. Weirdly enough, I find a tranquil corner by the window. Perfect! However, the guests still looked distain by my presence."
+    gu3 "So, ugh, what is it?"
+    user "Well, is there anything in particular you all would like to talk about?"
+    gu1 "No way. We came here to be charmed, not quizzed."
+    user "Oh, well, let me take the lead."
+    "I fumble for a conversation topic. I guess this is why Arisa, Tae and Sayo have their charm and I don’t. Really, I’m a boring person and they’re so interesting."
+    gu2 "Jeez, this is what you get with newbies, not knowing what to say."
+    gu1 "You know there is a reason they don’t let in members usually-!"
+    user "How about some tea?"
+    gu3 "Tea made by Arisa sounds good."
+    gu1 "Alright, go ahead. Impress me, you host!"
+    "The guests burst into a rude laughter. I pick up the tea blend left on the table and begin pouring the guests a cup."
+    gu1 "Gross, are you using the one left out?"
+    gu2 "Those are the worst ones!"
+    gu1 "I’ve had enough, let’s just go!"
+    user "No, wait!"
+    "I rush up to hold up my hand, but instead…"
+    gu3 "Argh! Crap! You…You just spilled tea over my uniform!"
+    "The guest is so loud that every turns to us. Including Tae. Including Arisa. Including Sayo."
+    gu1 "Let’s go already!"
+    gu2 "Good idea."
+    "The guests leave, still glaring at me. It feels like everyone is glaring at me now. It feels like everyone knows that I am not a good host. So, I stay sitting down, defeated."
+    "Before I know it, the event is over and I’ve only interacted once. I’ve stay seated for most of the time, my head down. My head doesn’t rise when I hear footsteps."
+    a "What the hell was that? You know how much of an idiot you looked?"
+    s "I agree with Arisa. Your performance was humiliating!"
+    a "Didn’t you say you were serious about this? Didn’t you say-!"
+    ta "[user], you didn’t give Oddie the right treats. Hmm, what a shame."
+    s "So, not only can’t you talk with guests, but you can’t follow Tae’s orders. You know we’re all above you, and therefore…"
+    "Sayo’s angry rambling pauses. I look up, to see that Tae, Arisa, and Sayo are looking gloomy and miserable – all their anger has disappeared."
+    s "…I think we have the right to remove you as a host."
+    a "W-We can’t afford that embarrassment again, er, you know?"
+    ta "…What a shame."
+    user "Wait a moment! I need to explain some things."
+    "I stand up, shoving all the spotlight onto me."
+    user "You see, I know as a host I should be ready to deal with anything, but those guests were really rude to me!"
+    "I explain myself to the others. When I’m done, they exchange glances, not knowing how to take in the information. Tae closes her eyes, and nods."
+    ta "I guess it was unfair to throw that chore on you without much information."
+    s "I should mention that I saw [user] rush out of the room too. I can’t really get how someone so earnest would mess up a chore on purpose. Your efforts were clear, [user]."
+    a "Although, uh, you really REALLY should be ready for those guests…I suppose it was unlucky bad guests happened to you first time though."
+    "Tae, who has actually been uncharacteristically frowning this entire time, suddenly smiles."
+    ta "I think you need more experience."
+    user "More experience? I’m sorry but I thought I’ve already been trained?"
+    ta "You see though, maybe you should get a deeper understanding of the hearts of the guests. Starting with our hearts."
+    a "Our hearts?"
+    s "Tae, this isn’t the time to be messing around."
+    ta "Messing around? Nah, I wouldn’t do that. I’m saying though that perhaps this weekend one of us should go on a date with [user]."
+    user "A date?"
+    a "Nuh-huh! No way! T-That’s too embarrassing!"
+    s "I-It’s shameful!"
+    t "Well, [user] would get to know our hearts better. If we let them train with our hearts, then they’ll understand the guests’ hearts! Afterall, you two are pretty much like difficult guests!"
+    a "I am NOT difficult! You’re the one being difficult with this idiot idea!"
+    s "…I-I suppose though that Tae is making sense here."
+    ta "So, it’s two against one! Okay, [user], which one of us would you like to date?"
+    a "HUH?! What about my say? Hello?"
+    menu:
+        "Tae":
+            user "Well, I guess, you then, Tae."
+            ta "Mmm, me? I wouldn’t consider myself that difficult but I suppose you want to go for easy level first…I don’t blame you, Arisa and Sayo are toughies!"
+            a "Hey! You’ve insulted me enough today!"
+            jump afterMenu1
+        "Arisa":
+            user "Um, Arisa?"
+            a "E-Ehh? What do you mean, you...!"
+            ta "Arisa, what did I say? It’s not really a real date, it’s an experience date!"
+            a "…Still my first date…"
+            ta "Huh? What was that?"
+            a "NOTHING! I was just saying that I’ll have to do it then!"
+            jump afterMenu1
+        "Sayo":
+            user "I’ll go with…Sayo."
+            s "O-Oh, sure. But like Tae said, this isn’t a real date."
+            ta "Yeah, it’s an experience date!"
+            s "…Right, yes, just an experience date if you will."
+            jump afterMenu1
+
+    label afterMenu1:
+        ta "Then it’s decided! I hope you’re free this weekend!"
+        user "Y-Yeah, I am."
+        ta "So the date will be this Sunday!"
+        user "Uh, yes."
+        ta "Great! I hope this works!"
+    return
+return

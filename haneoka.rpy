@@ -244,14 +244,14 @@ label hostClubIntroHaneoka:
     hide placeholder_karou_cg
     #**cg time ended
     call showAffection
-    jump day5
+    jump day5haneoka
     return
     #NEED HELP WITH: PLACING SPRITES. RIGHT NOW THE PLACEMENT IS PRETTY BAD SO I NEED HELP DO IT EFFECTIVELY. THE IF STATEMENTS MESSED UP AGAIN SO I NEED THOSE FIXED.
     #EVERYTHING ELSE IS FINE(?) I THINK.
 
     #day 5 start
     #written by cookie
-    label day5:
+    label day5haneoka:
         "When I go to the host club this time, it’s different. I can hear the guests from just outside the door. They're making a lot of noise, but I can tell it’s because of all the fun they’re having. I have to take a deep breath before entering."
         "As expected, the host club is swarming with guests, but more than I expected. Without realising, I have shuffled back towards the door and closed myself in to watch the crowds and crowds of guests."
         "I am absorbed by how well my fellow members are doing."

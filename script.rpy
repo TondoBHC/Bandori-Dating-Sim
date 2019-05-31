@@ -26,6 +26,13 @@ define ga = Character ("Girl A")
 define gb = Character ("Girl B")
 define unk = Character ("???")
 
+#additional guest character variables (cookie)
+
+define gu = Character("Guest")
+define gu1 = Character("Guest A")
+define gu2 = Character("Guest B")
+define gu3 = Character("Guest C")
+
 ## Here I've created and defined 3 arrays holding the various
 ## conjugations of the main pronouns we are going to be using throughout the game.
 define theyThem = ["They", "Them", "Their", "They\'re", "they", "them", "their", "they\'re"]
