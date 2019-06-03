@@ -311,7 +311,9 @@ label day5hansaki:
     ta "…Oh, okay! Look, I can you do me another favour?"
     user "Uh, sure! Sure! It’s, er, to do with your rabbits."
     #fast text occurs here - supposed to be unreadable for user. need help to do this.
-    ta "Yeah, you see, Oddie has been a really good this week so I wanted to treat him to a big meal! So, I want you to {nw}feedhimcarrotslettucecorianderbasilpizzayogurtdropsohandsomebrocoliifthereisanyandmaybesomecelerythat’sgoodtheylikeceleryyouknowchocolatemaysoundgoodbutrabbitsdon’tlikethatsoisupposenothuh.{fast}"
+    ta "Yeah, you see, Oddie has been a really good this week so I wanted to treat him to a big meal! So, I want you to"
+    #So, you just have to use the nw(no-wait) tag at the end, not both nw and fast. -Tondo
+    "feedhimcarrotslettucecorianderbasilpizzayogurtdropsohandsomebrocoliifthereisanyandmaybesomecelerythat’sgoodtheylikeceleryyouknowchocolatemaysoundgoodbutrabbitsdon’tlikethatsoisupposenothuh.{nw}"
     ta "Did you get that?"
     "Not at all!"
     user "Do you mind running it by me again. Argh, I guess it’s just noisy in here or something…"
