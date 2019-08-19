@@ -47,13 +47,16 @@ image mc bedroom = "backgrounds/mcBedroom.jpg"
 image school front outside = "backgrounds/schoolFrontOutside.jpg"
 image back = "backgrounds/back.jpg"
 
+
+
 # The game starts here.
 
 #****DAY 1****
-label start:
 
+label start:
     stop music
     play music "music/introScreen.mp3"
+    jump fd_interaction
     show screen ui_top_buttons
     menu:
         "Which pronouns do you prefer using?"

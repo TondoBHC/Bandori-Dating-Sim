@@ -1,4 +1,39 @@
-﻿################################################################################
+##host club screen by cookie
+style interaction_style:
+    xalign 0.5
+    yalign 0.5
+    spacing 10
+screen custom_screen:
+    hbox:
+        button:
+            text "Quit"
+            action Null
+            xpos 1200
+    vbox:
+        style "interaction_style"
+        button:
+            text "Talk"
+            action Function(renpy.call, label="fd_talk")
+            xpos -350
+        button:
+            text "Date"
+            action Function(renpy.call, label="fd_date")
+            xpos -350
+    vbox:
+        style "interaction_style"
+        button:
+            text "Chore"
+            action Function(renpy.call, label="fd_chore")
+            xpos 350
+        button:
+            text "Gift"
+            action Function(renpy.call, label="fd_gift")
+            xpos 350
+
+
+
+
+################################################################################
 ## Initialization
 ################################################################################
 
