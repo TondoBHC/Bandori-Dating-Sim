@@ -7,7 +7,7 @@ screen custom_screen:
     hbox:
         button:
             text "Quit"
-            action Null
+            action NullAction
             xpos 1200
     vbox:
         style "interaction_style"
@@ -29,6 +29,51 @@ screen custom_screen:
             text "Gift"
             action Function(renpy.call, label="fd_gift")
             xpos 350
+#screen start
+screen gift:
+    #frame for text to display in - should be replaced with text box in future
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.5
+        yalign 0.5
+        xpos 650
+        ypos 550
+        #text that will have descriptions passed into
+        text "[hovering]"
+    #hbox for buttons - could change to grid depending on gift numbers
+    hbox:       
+        style "interaction_style"
+        textbutton "Gift 1":
+            action Function(renpy.call, Return(value=True))
+            #description appears when hovered - reverts back when unhovered
+            hovered SetVariable ("hovering", "This is the description for gift 1")
+            unhovered SetVariable("hovering", hoveringDefault)
+            xpos -150
+        textbutton "Gift 2":
+            #null action temp - will take to new screen like gift 1 when clicked 
+            action NullAction()
+            hovered SetVariable ("hovering", "This is the description for gift 2")
+            unhovered SetVariable("hovering", hoveringDefault)
+            xpos -150
+        textbutton "Gift 3":
+            action NullAction()
+            hovered SetVariable ("hovering", "This is the description for gift 3")
+            unhovered SetVariable("hovering", hoveringDefault)
+            xpos -150
+        textbutton "Gift 4":
+            action NullAction()
+            hovered SetVariable ("hovering", "This is the description for gift 4")
+            unhovered SetVariable("hovering", hoveringDefault)
+            xpos -150
+        textbutton "Gift 5":
+            action NullAction()
+            hovered SetVariable ("hovering", "This is the description for gift 5")
+            unhovered SetVariable("hovering", hoveringDefault)
+            xpos -150
+
+
+
 
 
 
