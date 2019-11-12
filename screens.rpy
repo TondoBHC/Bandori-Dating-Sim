@@ -1,9 +1,19 @@
 ##host club screen by cookie
+init python:
+    #cookie - making item class
+        class item(object):
+            def __init__(self,name,cost,preference,desc):
+                self.name=name#for item name
+                self.cost=cost#for item price
+                self.preference=preference#for who likes the item (character-wise)
+                self.desc=desc#for item description
+
 style interaction_style:
     xalign 0.5
     yalign 0.5
     spacing 10
 screen custom_screen:
+    modal True
     hbox:
         button:
             text "Quit"
@@ -42,7 +52,7 @@ screen gift:
         #text that will have descriptions passed into
         text "[hovering]"
     #hbox for buttons - could change to grid depending on gift numbers
-    hbox:       
+    hbox:
         style "interaction_style"
         textbutton "Gift 1":
             action Function(renpy.call, Return(value=True))
@@ -51,7 +61,7 @@ screen gift:
             unhovered SetVariable("hovering", hoveringDefault)
             xpos -150
         textbutton "Gift 2":
-            #null action temp - will take to new screen like gift 1 when clicked 
+            #null action temp - will take to new screen like gift 1 when clicked
             action NullAction()
             hovered SetVariable ("hovering", "This is the description for gift 2")
             unhovered SetVariable("hovering", hoveringDefault)
