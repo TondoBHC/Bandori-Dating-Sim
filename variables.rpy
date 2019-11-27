@@ -1,74 +1,145 @@
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
 init python:
-    class player(object):
-        def __init__(self,host,grade,gold):
-            self.host=host#host club quality
-            self.grade=grade#school performance
-            self.gold=gold#money
-        def getHost(self):
-            return self.host #to get value of host club performance
-        def getGrade(self):
-            return self.grade
-        def getGold(self):
-            return self.gold
-        def increaseHost(self,x):
-            self.host+= x #will increase value of host based on x
-        def decreaseHost(self,x):
-            self.host-= x #will decrease value of host based on x
-        def changeGrade(self,x):
-            self.grade==x #will change value of grade based on x
-        def increaseGold(self,x):
-            self.gold+=x
-        def decreaseGold(self,x):
-            self.gold-=x
+    ## a list that will store all the gifts,convos,dates,guests in game -
+    #will adjust length based on the instances of each object automatically
+
+    gifts = [ ]
+    convos = [ ]
+    dates = [ ]
+    guests = [ ]
+
+    ##object variables - gift, inventory, convo, dates, guests
+
+    #the gift object
+    class gift(object):
+        def __init__(self,name,cost,desc,image):
+            #properties
+            self.name=name
+            self.cost=cost
+            self.desc=desc#22 characters max per each desc - 11 characters per para
+            #(2 paras max) - see sample define
+            self.image=image
+            self.ID=None#look at CONVO for ref when doing IDs
+            #line to add this object to the gifts
+            gifts.append(self)
+        def setID(self):
+            x = convos.index(self)
+            self.ID=x
+
+    #the inventory object - will control purchasing,
+    #storing, etc. but is mainly temp right now - still need to change a few thingys
+    class Inventory(object):
+        def __init__(self,money=10):
+            self.money=money
+            self.gift=[]#gift object as subclass
+        def buy(self, item):
+            if self.money >= item.cost:
+                self.gift.append(item)
+                self.money -= item.cost
+
+    #the convo object - stores convo topics
+    class convo(object):
+        def __init__(self,topic):
+            self.topic=topic#the name of the topic
+            self.question=[]#subclass where questions will be stored
+            self.ID=None#used to identify item via a number - this is so that it can be
+            #identified if a guest/girl likes a topic
+            convos.append(self)
+        def setID(self):
+            x = convos.index(self)#returns the index of the value - this sets the autonumber for ID
+            self.ID=x
+        def addQ(self,question,options=[],correct=[]):
+            self.question.append(question(questions,options,correct))
+    class question(object):
+        def __init__(self,question,options=[],correct=[]):
+            self.question=question#the actual question
+            self.options=options#the options
+            self.correct=correct#is the option right or nah?
+            #options and correct are stored as a set of 1d arrays and thus the
+            # index of option should correspond with the index of correct when filling out
+            #see sample define
+
+    #the guest object
+    class guest(object):
+        def __init__(self,desc,image,convoPref=[],giftPref=[]):
+            x = len(convos)
+            self.desc=desc
+            self.img=image #guest image - if we only have one guest sprites, this will suffice
+            if convoPref is None:
+                self.giftPref=[renpy.random.randint(1, x),renpy.random.randint(1, x),renpy.random.randint(1, x)]
+                #three random convo topics for pref if none is set
+            else:
+                self.convoPref=convoPref
+            if giftPref is None:
+                self.giftPref=[renpy.random.randint(1, x),renpy.random.randint(1, x),renpy.random.randint(1, x)]
+                #likewise
+            else:
+                self.giftPref=giftPref
+            guests.append(self)
+
+    #the date object - for storing dating options prefs and bp
     class date(object):
-        def __init__(self,bp,date,heartbroken):
-            self.bp=bp#bond points
-            self.date=date#date number
-            self.heartbroken=heartbroken#used to store if girl is heartbroken or not - might be moved out of class later
-        def nextDate(self,x):
-            #this will both change the date number and the bp needed for the next date
-            #eg: player unlocks date 3. using this function after they unlock date 3 will increase the date number to 4 and increase the corresponding bp needed
-            self.bp+=x
-            self.date+=1
-        def makeHeartbroken(self):
-            #this will make a girl heartbroken. tried to make this persistent variable like wanted.
-            self.heartbroken==True
-            renpy.register_persistent('sadDoki', self.heartbroken)
+        def __init__(self,bp,convoPref=[],giftPref=[]):
+            self.bp=bp
+            self.convoPref=convoPref#unlike guests, convo and gift prefs always need passed in
+            self.giftPref=giftPref
+            dates.append(self)
+
+    gifts = [ ]
+    convos = [ ]
+    dates = [ ]
+    guests = [ ]
+
+    ##object define (samples included)
+
+    #gift define sample
+    giftsample = gift("Gift 1",1,"eeeeeeeeeee{p}eeeeeeeeeee","gui/inv.png")#goes name,price,desc,image
+
+    #convo + question define sample
+    convosample = convo("Topic 1")#add topic here
+    convosample.addQ("Question 1",["Answer 1","Answer 2","Answer 3"],[True,False,False])
+    #when you want to add a question to a convo - use the sample above
+    #the TRUE, FALSE, FALSE indicates the right answer (true) - it is a corresponding 1d array
+    #to the answer paramaters
+
+    #date define sample
+    date(0,[1,2,3],[1,2,3])
+    #guest define sample
+    guest("Desc","images/guest.png",[1,2,3],[1,2,3])#if you wish, you can just pass in
+    #the first two paramaters for randomly assigned interests
+
+    #inventory define
+    inventory = Inventory()
 
 
 
 
-
-
-define e = Character("Eileen")
-
-define principal = Character("Principal")
+#character define
+#mc
 define fullName = Character("[first_name] [last_name]")
-define mom = Character("Mom")
 $ user = None
-define affection = 0
-
+#side
+define principal = Character("Principal")
+define mom = Character("Mom")
+define ga = Character ("Girl A")
+define gb = Character ("Girl B")
+define unk = Character ("???")
+define ka = Character("Kasumi", color="#ff0000")
+#additional guest character variables (cookie)
+define gu = Character("Guest")
+define gu1 = Character("Guest A")
+define gu2 = Character("Guest B")
+define gu3 = Character("Guest C")
+#dates
 define k = Character("Kaoru")
 define t = Character("Tomoe")
 define h = Character("Hina")
 define s = Character("Sayo")
 define a = Character("Arisa", color="#800080")
 define ta = Character("Tae")
-define ka = Character("Kasumi", color="#ff0000")
 define hi = Character("Himari", color="#FFA0B4")
-define ga = Character ("Girl A")
-define gb = Character ("Girl B")
-define unk = Character ("???")
 
-#additional guest character variables (cookie)
 
-define gu = Character("Guest")
-define gu1 = Character("Guest A")
-define gu2 = Character("Guest B")
-define gu3 = Character("Guest C")
 
 ## Here I've created and defined 3 arrays holding the various
 ## conjugations of the main pronouns we are going to be using throughout the game.
