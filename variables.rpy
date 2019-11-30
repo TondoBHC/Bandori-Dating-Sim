@@ -37,19 +37,20 @@ init python:
                 self.gift.append(item)
                 self.money -= item.cost
 
+
     #the convo object - stores convo topics
     class convo(object):
         def __init__(self,topic):
             self.topic=topic#the name of the topic
-            self.question=[]#subclass where questions will be stored
+            self.questions=[]#subclass where questions will be stored
             self.ID=None#used to identify item via a number - this is so that it can be
             #identified if a guest/girl likes a topic
             convos.append(self)
         def setID(self):
             x = convos.index(self)#returns the index of the value - this sets the autonumber for ID
             self.ID=x
-        def addQ(self,question,options=[],correct=[]):
-            self.question.append(question(questions,options,correct))
+        def addQ(self,q,options=[],correct=[]):
+            self.questions.append(question(q,options,correct))
     class question(object):
         def __init__(self,question,options=[],correct=[]):
             self.question=question#the actual question
@@ -91,12 +92,13 @@ init python:
     guests = [ ]
 
     ##object define (samples included)
-
+    #samples
     #gift define sample
     giftsample = gift("Gift 1",1,"eeeeeeeeeee{p}eeeeeeeeeee","gui/inv.png")#goes name,price,desc,image
-
+    giftsample.setID()
     #convo + question define sample
     convosample = convo("Topic 1")#add topic here
+    convosample.setID()
     convosample.addQ("Question 1",["Answer 1","Answer 2","Answer 3"],[True,False,False])
     #when you want to add a question to a convo - use the sample above
     #the TRUE, FALSE, FALSE indicates the right answer (true) - it is a corresponding 1d array
@@ -108,15 +110,30 @@ init python:
     guest("Desc","images/guest.png",[1,2,3],[1,2,3])#if you wish, you can just pass in
     #the first two paramaters for randomly assigned interests
 
+
+    #real defines
+    #date defines
+    kStats=date(0,[0,0,0],[0,0,0])#this is for kaoru
+    hStats=date(0,[0,0,0],[0,0,0])#hina
+    sStats=date(0,[0,0,0],[0,0,0])#sayo
+    taStats=date(0,[0,0,0],[0,0,0])#tae
+    aStats=date(0,[0,0,0],[0,0,0])#arisa
+    hiStats=date(0,[0,0,0],[0,0,0])#himari
+    tStats=date(0,[0,0,0],[0,0,0])#tomoe
+
     #inventory define
     inventory = Inventory()
 
 
+#persistent variables
+$ persistent.candy = int(0)
+$ persistent.completedTimes = int(0)
 
 
 #character define
 #mc
 define fullName = Character("[first_name] [last_name]")
+$ persistent.playerName = "[first_name] [last_name]" # used for intro
 $ user = None
 #side
 define principal = Character("Principal")

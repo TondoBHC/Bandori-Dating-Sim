@@ -14,13 +14,10 @@ label start:
     show screen ui_top_buttons
     menu:
         "Which pronouns do you prefer using?"
-
         "They/Them":
             $ pronoun = theyThem
-
         "He/Him":
             $ pronoun = heHim
-
         "She/Her":
             $ pronoun = sheHer
     label nameplayer:
@@ -39,9 +36,16 @@ label start:
         menu:
             "Yes, [fullName]":
                 pass
+                $persistent.playername = "[first_name] [last_name]"
             "No":
                 "Well then, enter the correct one."
                 call nameplayer
+        if $ persistent.playerName = "[first_name] [last_name]" and $ persistent.completedTimes > 1:
+            "Have we met before?"
+        elif $ persistent.completedTimes > 1:
+            "Hmm we know someone that had the same name as you. weird."
+        else:
+            "Have fun!"
 
     ## To use the pronoun variable they have to be incased in brackets[], friendly reminder that arrays start from 0.
     stop music
