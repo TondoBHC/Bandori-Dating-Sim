@@ -1,0 +1,28 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 35, in script
+    if  (persistent.playerName == oldPlayerName) and (persistent.CompletedTimes > 0):
+  File "game/script.rpy", line 35, in <module>
+    if  (persistent.playerName == oldPlayerName) and (persistent.CompletedTimes > 0):
+NameError: name 'oldPlayerName' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 35, in script
+    if  (persistent.playerName == oldPlayerName) and (persistent.CompletedTimes > 0):
+  File "C:\Users\fiona\Documents\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\fiona\Documents\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\fiona\Documents\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 35, in <module>
+    if  (persistent.playerName == oldPlayerName) and (persistent.CompletedTimes > 0):
+NameError: name 'oldPlayerName' is not defined
+
+Windows-8-6.2.9200
+Ren'Py 7.3.5.606
+bandori intro test 1.0
+Mon Dec 16 20:28:51 2019
