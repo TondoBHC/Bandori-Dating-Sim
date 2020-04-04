@@ -1,0 +1,172 @@
+﻿#written by cookie - referred to renpy doc and this: https://lemmasoft.renai.us/forums/viewtopic.php?t=23071
+$ import variables as var
+
+#gift screen for buying stuff
+screen giftscreenBuy():
+
+    modal True #used so player cant click on anything outside the screen
+
+    frame:
+        xalign 0.330
+        ypos(50)
+        textbutton "Exit":
+            action Call("Shop")
+
+
+
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.5
+        yalign 0.5
+        xysize(500,557)
+
+
+        vpgrid:
+            #grid define + spacing
+            cols 2
+            spacing 10
+
+
+
+            #scrollbar - wanna move this to the side a bit but couldnt really find out how - will continue to investigate in the future or tondo. (eyes emoji)
+            if len(gifts)>4:
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+                side_xalign 0.5
+
+            #for each non-guest gift - do this
+            for i in gifts:
+                if not i.guest:
+                    vbox:
+                        add "[i.image]" xalign 1.0 yalign 0.0 #image added
+                        hbox:
+                            textbutton "[i.name]": #name of gift and button to select/buy
+                                xysize(100,20)
+                                action Confirm("Is this the gift you want?",Return(i),NullAction()) #for some reason, [i.cost] displays instead of the variable - ?
+                            add im.Scale("gui/coin.png",20,20)#rescaling money image so it corresponds to the cost text
+                            text "[i.cost]"#cost
+                        text "[i.desc]":#desc
+                            xysize (300,10)
+
+#label to confirm whether or not the player can buy a gift or not
+label buy(x):
+    $chosenItem = x
+    if chosenItem.cost <= inventory.money:
+        $inventory.buy(_return) #add chosen item to inventory if sufficent funds
+        return
+    else:
+        "You have no money ):"
+        call screen giftscreenBuy
+
+
+
+#gift screen for guests!
+screen giftscreenGuest():
+
+    modal True #used so player cant click on anything outside the screen
+
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.5
+        yalign 0.5
+        xysize(500,557)
+
+
+        vpgrid:
+            #grid define + spacing
+            cols 2
+            spacing 10
+
+            #scrollbar - wanna move this to the side a bit but couldnt really find out how - will continue to investigate in the future or tondo. (eyes emoji)
+            #if the number of gifts for a guest is <=4, remove this in future
+            if len(gifts)>4:
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+                side_xalign 0.5
+
+
+            #for each guest gift - do this
+            for i in gifts:
+                if i.guest:
+                    vbox:
+                        add "[i.image]" xalign 1.0 yalign 0.0 #image added
+                        hbox:
+                            textbutton "[i.name]": #name of gift and button to select/buy
+                                xysize(100,20)
+                                action Confirm("Is this the gift you want?",Return(i.ID),NullAction()) #for some reason, [i.cost] displays instead of the variable - ?
+                        text "[i.desc]":#desc
+                            xysize (300,10)
+
+
+#gift screen for dating options!
+screen giftscreenDate():
+
+    modal True #used so player cant click on anything outside the screen
+
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.5
+        yalign 0.5
+        xysize(500,557)
+
+
+        vpgrid:
+            #grid define + spacing
+            cols 2
+            spacing 10
+
+            #scrollbar - wanna move this to the side a bit but couldnt really find out how - will continue to investigate in the future or tondo. (eyes emoji)
+            if len(inventory.gift)>4:
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+                side_xalign 0.5
+
+            #for each gift in player inventory - do this
+            for i in inventory.gift:
+                    vbox:
+                        add "[i.image]" xalign 1.0 yalign 0.0 #image added
+                        hbox:
+                            textbutton "[i.name]": #name of gift and button to select/buy
+                                xysize(100,20)
+                                action Confirm("Is this the gift you want?",Return(i),NullAction()) #for some reason, [i.cost] displays instead of the variable - ?
+                        text "[i.desc]":#desc
+                            xysize (300,10)
+
+
+
+
+
+
+# example use:
+
+label gift:
+
+    menu:
+        "Buy gift.":
+            call screen giftscreenBuy
+            call buy(_return)
+            label openInv:
+                call screen giftscreenDate
+        "Give gift.":
+            call screen giftscreenGuest
+
+
+#the usual bing-bong that i couldnt be bothered to remove
+
+
+    $chosenItem = _return #variable to store chosen item
+
+    e "You chose [chosenItem.name]"
+
+    jump here
+
+#when you buy something - not ideal but i'll fix when moving to the code {:
+
+
+    return

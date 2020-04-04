@@ -1,0 +1,38 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 25, in script call
+    call map from _call_map_3
+  File "game/map.rpy", line 19, in script call
+    call screen map
+  File "game/map.rpy", line 47, in script call
+    call buy(_return) from _call_buy
+  File "game/gift script (cookie - nov24).rpy", line 148, in script call
+    call buy(_return) from _call_buy_1
+  File "game/gift script (cookie - nov24).rpy", line 162, in script
+    jump here
+ScriptError: could not find label 'here'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 25, in script call
+    call map from _call_map_3
+  File "game/map.rpy", line 19, in script call
+    call screen map
+  File "game/map.rpy", line 47, in script call
+    call buy(_return) from _call_buy
+  File "game/gift script (cookie - nov24).rpy", line 148, in script call
+    call buy(_return) from _call_buy_1
+  File "game/gift script (cookie - nov24).rpy", line 162, in script
+    jump here
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1697, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\script.py", line 898, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'here'.
+
+Windows-8-6.2.9200
+Ren'Py 7.3.5.606
+bandori dating sim testing grounds 1.0
+Sat Apr 04 13:33:50 2020
