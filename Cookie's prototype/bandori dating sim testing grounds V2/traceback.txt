@@ -1,38 +1,44 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 25, in script call
+  File "game/script.rpy", line 26, in script call
     call map from _call_map_3
-  File "game/map.rpy", line 19, in script call
+  File "game/map.rpy", line 84, in script call
     call screen map
-  File "game/map.rpy", line 47, in script call
-    call buy(_return) from _call_buy
-  File "game/gift script (cookie - nov24).rpy", line 148, in script call
-    call buy(_return) from _call_buy_1
-  File "game/gift script (cookie - nov24).rpy", line 162, in script
-    jump here
-ScriptError: could not find label 'here'.
+  File "game/map.rpy", line 119, in script call
+    call map from _call_map_1
+  File "game/map.rpy", line 84, in script call
+    call screen map
+  File "game/map.rpy", line 98, in script call
+    call hostClub from _call_hostClub
+  File "game/host.rpy", line 46, in script
+    if giftChosen == 1:
+SyntaxError: invalid syntax (game/host.rpy, line 57)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 25, in script call
+  File "game/script.rpy", line 26, in script call
     call map from _call_map_3
-  File "game/map.rpy", line 19, in script call
+  File "game/map.rpy", line 84, in script call
     call screen map
-  File "game/map.rpy", line 47, in script call
-    call buy(_return) from _call_buy
-  File "game/gift script (cookie - nov24).rpy", line 148, in script call
-    call buy(_return) from _call_buy_1
-  File "game/gift script (cookie - nov24).rpy", line 162, in script
-    jump here
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1697, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\script.py", line 898, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'here'.
+  File "game/map.rpy", line 119, in script call
+    call map from _call_map_1
+  File "game/map.rpy", line 84, in script call
+    call screen map
+  File "game/map.rpy", line 98, in script call
+    call hostClub from _call_hostClub
+  File "game/host.rpy", line 46, in script
+    if giftChosen == 1:
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/host.rpy, line 57)
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 bandori dating sim testing grounds 1.0
-Sat Apr 04 13:33:50 2020
+Sat Apr 11 12:58:13 2020

@@ -99,16 +99,24 @@ label dateDate(x):
     return
 
 label dateGift(x):
-    if x.datesDone >= 5 and len(inventory.gift) >=1 and x.giftCounter <= 3: #if player has gifts in their inventory AND
+    if len(inventory.gift) >0 and x.giftCounter <= 3: #and x.datesDone >= 5: #if player has gifts in their inventory AND
     #has done 5 dates AND has not yet given the girl 3 gifts in that week, they can give gifts!
-        call giftscreenDate from _call_giftscreenDate
+        $ x.giftCounter += 1 #giftCounter goes up by 1 for that girl
+        $ AP -= 1 #and you lose AP
+        call screen giftscreenDate
         $giftChosen = _return
-        if giftChosen in x.giftPref:
+        if giftChosen in x.giftSpecial:
+            "very likey"
             $ x.bp += 8 #if your date likes the gift, you get bp!
-            $ x.giftCounter += 1 #...but the giftCounter goes up by 1 for that girl
-            $ AP -= 1 #and you lose AP
+        elif giftChosen in x.giftGood:
+            "likey"
+            $ x.bp += 5
+        elif giftChosen in x.giftTrash:
+            "EW"
+            $ x.bp -= 1
         else:
-            "um thanks ig??? nah this sucks lmao."
+            "um thanks ig???"
+            $ x.bp += 2
     elif x.giftCounter > 3:
         "Haven't you given me enough gifts this week????"
         "You can't give any more gifts."

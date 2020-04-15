@@ -53,75 +53,66 @@ init python:
 
     #the guest object
     class guest(object):
-        def __init__(self,desc,image,personality,timesVisited,convoPref=[],giftPref=[]):
-            x = len(convos)#idk what this is
+        def __init__(self,desc,timesVisited,convoPref=[],giftPref=[]):
             self.desc=desc
             self.timesVisited =timesVisited #how many times has the guest come?
-            self.img=image #guest image - if we only have one guest sprites, this will suffice
-            if convoPref is None:
-                self.convoPref=[renpy.random.randint(1, x),renpy.random.randint(1, x),renpy.random.randint(1, x)]
-                #three random convo topics for pref if none is set
-            else:
-                self.convoPref=convoPref
-            if giftPref is None:
-                self.giftPref=[renpy.random.randint(1, x),renpy.random.randint(1, x),renpy.random.randint(1, x)]
-                #likewise
-            else:
-                self.giftPref=giftPref
-            if personality is None:
-                self.personality=renpy.random.randint(1, 3)
-            else:
-                self.personality=personality
-
+            self.convoPref=convoPref
+            self.giftPref=giftPref
+            self.ID=len(guests)+1
             guests.append(self)
 
     #the date object - for storing dating options prefs and bp
     class date(object):
-        def __init__(self,bp,datesDone,giftCounter,convoCounter=[],convoPref=[],giftPref=[]):
+        def __init__(self,name,bp,datesDone,giftCounter,convoCounter=[],convoPref=[],giftTrash=[],giftGood=[],giftSpecial=[]):
+            self.name=name
             self.bp=bp
             self.datesDone=datesDone#the number of dates the player has done with this girl
             self.giftCounter=giftCounter#the number of gifts the player has given to the girl in a week (resets every new week)
             self.convoCounter=convoCounter#if a topic has been talked about with the girl in a week(resets every new week)
             self.convoPref=convoPref#unlike guests, convov1 and gift prefs always need passed in
-            self.giftPref=giftPref
+            self.giftTrash=giftTrash#what gifts are trash
+            self.giftGood=giftGood#what gifts are good
+            self.giftSpecial=giftSpecial#what gifts are special
             self.ID=len(dates)+1#ID for date
             dates.append(self)
-
-
 
 
     ##object define (samples included)
     #samples
     #gift define sample
-    giftsample1 = gift("Gift 1",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/inv.png")#goes name,price,desc,guest,image
-    giftsample2 = gift("Gift 2",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/inv.png")#goes name,price,desc,guest,image
-    giftsample3 = gift("Gift 3",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/inv.png")#goes name,price,desc,guest,image
-    giftsample4 = gift("Gift 4",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/inv.png")#goes name,price,desc,guest,image
-    giftsample5 = gift("Gift 5",1,"eeeeeeeeeee{p}eeeeeeeeeee",False,"gui/inv.png")#goes name,price,desc,guest,image
+    giftsample1 = gift("Strawberry Shortcake",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/gifts/cake.png")#goes name,price,desc,guest,image
+    giftsample2 = gift("Earl Grey",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/gifts/tea.png")
+    giftsample3 = gift("Green tea",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/gifts/tea2.png")
+    giftsample4 = gift("Jello",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/inv.png")
+    giftsample5 = gift("Gift 5",1,"eeeeeeeeeee{p}eeeeeeeeeee",False,"gui/inv.png")
 
 
     #convov2 sample define
-    convosample = convo("Topic 1",0,0)
+    convosample0 = convo("Animals",0,0)
+    convosample1 = convo("Topic 2",0,0)
+    convosample2 = convo("Topic 3",0,0)
+    convosample3 = convo("Topic 4",0,0)
+    convosample4 = convo("Topic 5",0,0)
+    convosample5 = convo("Topic 6",0,0)
 
     #guest define sample
-    guest("Desc","images/guest.png",1,0,[1,2,3],[1,2,3])#if you wish, you can just pass in
+    guest("Desc",0,[1,2,3],[1,2,3])#if you wish, you can just pass in
     #the first two paramaters for randomly assigned interests
 
 
     #real defines
     #date defines
-    kStats=date(0,0,0,[],[0,0,0],[0,0,0])#this is for kaoru - id1
-    hStats=date(0,0,0,[],[0,0,0],[0,0,0])#hina - id2
-    tStats=date(0,0,0,[],[0,0,0],[0,0,0])#tomoe - id3
-    sStats=date(0,0,0,[],[0,0,0],[0,0,0])#sayo - id4
-    taStats=date(0,0,0,[],[0,0,0],[0,0,0])#tae - id5
-    aStats=date(0,0,0,[],[0,0,0],[0,0,0])#arisa - id6
-    hiStats=date(0,0,0,[],[0,0,0],[0,0,0])#himari - id7
+    kStats=date("Kaoru",0,0,0,[],[0,0,0],[0,0,0],[0,0,0],[0,0,0])#this is for kaoru - id1
+    hStats=date("Hina",0,0,0,[],[0,0,0],[0,0,0])#hina - id2
+    tStats=date("Tomoe",0,0,0,[],[0,0,0],[0,0,0])#tomoe - id3
+    sStats=date("Sayo",0,0,0,[],[0,0,0],[0,0,0])#sayo - id4
+    taStats=date("Tae",0,0,0,[],[0,0,0],[0,0,0])#tae - id5
+    aStats=date("Arisa",0,0,0,[],[0,0,0],[0,0,0])#arisa - id6
+    hiStats=date("Himari",0,0,0,[],[0,0,0],[0,0,0],[0,0,0],[0,0,0])#himari - id7
 
 
     #inventory define
     inventory = Inventory(10)
-
 
 
 #persistent variables
@@ -137,7 +128,6 @@ $ user = None
 define hostPoints = 0
 define studyPoints = 0
 define schoolPoints = 0
-
 define resumeGiven = False
 define dateOrganised = False #date organised for week?
 #side
@@ -160,7 +150,8 @@ define s = Character("Sayo")
 define a = Character("Arisa")
 define ta = Character("Tae")
 define hi = Character("Himari")
-
+#guests
+define y = Character("Yukina")
 
 
 ## Here I've created and defined 3 arrays holding the various

@@ -1,12 +1,17 @@
 $ import variables as var
 
+
 screen map():
+    modal True
     imagemap:
         hbox:
-            imagebutton auto "gui/planner_%s.png" xpos 1100 ypos 600 action ToggleScreen('planner',dissolve)#show screen planner
+            imagebutton auto "gui/planner_%s.png" xpos 1100 ypos 600 action ToggleScreen("Planner",dissolve)#show screen planner
+            imagebutton auto "gui/gift_%s.png" xpos 825 ypos 600 action ToggleScreen("giftInv",dissolve)#show inv
+
+        hbox:
             frame:
                 background "gui/datebar.png"
-                xpos -110
+                xpos 50
                 ypos 32
                 vbox:
                     text "Sep 20, Afternoon" size 20 text_align 0.5
@@ -21,12 +26,61 @@ screen map():
         hotspot (673, 159, 321, 201) clicked Call("Shop")
         #job
         hotspot (226, 384, 317, 198) clicked Call("Job")
-screen planner():
-    text "Hello world" size 40
+
+screen Stats():
+    tag Plan
+    modal True
+    add "gui/stats.png"
+    hbox:
+        imagebutton auto "gui/map_%s.png" xpos 1100 ypos 600 action Hide("Plan")#back to map
+    hbox:
+        xalign 1
+        ypos 85
+        imagebutton auto "gui/buttonL_%s.png" action ToggleScreen("Planner")
+    vpgrid:
+        #grid define + spacing
+        cols 2
+        spacing 20
+        ypos 240
+        xpos 795
+        for i in convos:
+                text "[i.topic]: [i.level]"
+    vpgrid:
+        #grid define + spacing
+        cols 2
+        spacing 20
+        ypos 515
+        xpos 815
+        for i in dates:
+                text "[i.name]:[i.bp]"
+    vpgrid:
+        #grid define + spacing
+        cols 1
+        ypos 240
+        xpos 240
+        vbox:
+            spacing 20
+            text "Host Club Points: [hostPoints]"
+            text "Study Points: [studyPoints]"
+            text "Grade: [schoolPoints]"
+
+screen Planner():
+    tag Plan
+    modal True
+    add "gui/plannerSept.png"
+    hbox:
+        imagebutton auto "gui/map_%s.png" xpos 1100 ypos 600 action Hide("Plan")#back to map
+    hbox:
+        xalign 0.99
+        ypos 85
+        imagebutton auto "gui/buttonR_%s.png" action ToggleScreen("Stats")
+    hbox:
+        xpos 200
+        ypos 160
+        add "gui/test.png"
 
 
-
-label map:
+label map():
     call screen map
     return
 

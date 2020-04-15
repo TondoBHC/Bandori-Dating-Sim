@@ -6,6 +6,7 @@
 define e = Character("eileen")
 
 label start:
+    $renpy.notify("Hello")
     show screen  top_ui
     scene park
     show annoyed at l

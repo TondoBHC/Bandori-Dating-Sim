@@ -8,7 +8,7 @@ screen giftscreenBuy():
 
     frame:
         xalign 0.330
-        ypos(50)
+        ypos 50
         textbutton "Exit":
             action Call("Shop")
 
@@ -137,6 +137,55 @@ screen giftscreenDate():
                                 action Confirm("Is this the gift you want?",Return(i),NullAction()) #for some reason, [i.cost] displays instead of the variable - ?
                         text "[i.desc]":#desc
                             xysize (300,10)
+
+
+screen giftInv():
+    modal True #used so player cant click on anything outside the screen
+    add "gui/overlay/confirm.png"
+
+    frame:
+        xalign 0.330
+        ypos 50
+        textbutton "Exit":
+            action ToggleScreen("giftInv",dissolve)
+
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.5
+        yalign 0.5
+        xysize(500,557)
+
+
+        vpgrid:
+            #grid define + spacing
+            cols 2
+            spacing 10
+
+            #scrollbar - wanna move this to the side a bit but couldnt really find out how - will continue to investigate in the future or tondo. (eyes emoji)
+            if len(inventory.gift)>4:
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+                side_xalign 0.5
+
+            if len(inventory.gift)<1:
+                vbox:
+                    text "No gifts yet.":
+                        xysize(100,20)
+
+            #for each gift in player inventory - do this
+            for i in inventory.gift:
+                    vbox:
+                        add "[i.image]" xalign 1.0 yalign 0.0 #image added
+                        hbox:
+                            text "[i.name]": #name of gift and button to select/buy
+                                xysize(100,20)
+                        text "[i.desc]":#desc
+                            xysize (300,10)
+
+
+
 
 # example use:
 

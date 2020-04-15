@@ -20,21 +20,14 @@ screen convo():
             cols 1
             spacing 10
 
-            #scrollbar - wanna move this to the side a bit but couldnt really find out how - will continue to investigate in the future or tondo. (eyes emoji)
-            if len(convos)>4:
-                draggable True
-                mousewheel True
-                scrollbars "vertical"
-                side_xalign 0.5
 
-
-        #code for normal convov1
-        #for each convov1 topic - do this
-        for i in convos:
-                vbox:
-                    textbutton "[i.topic]":
-                        xysize(100,20)
-                        action Confirm("Is this topic the one you want?",Return(i),NullAction())
+            #code for normal convov1
+            #for each convov1 topic - do this
+            for i in convos:
+                    vbox:
+                        textbutton "[i.topic]":
+                            xysize(100,20)
+                            action Confirm("Is this topic the one you want?",Return(i),NullAction())
 
 
 label convoAdv(topicC,guestC):

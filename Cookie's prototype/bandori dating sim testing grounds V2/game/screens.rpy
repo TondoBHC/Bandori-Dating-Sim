@@ -1242,7 +1242,7 @@ screen skip_indicator():
         hbox:
             spacing 6
 
-            text _("Skipping")
+            text _("Skipping") size 20
 
             text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
@@ -1268,11 +1268,15 @@ style skip_text is gui_text
 style skip_triangle is skip_text
 
 style skip_frame:
-    ypos gui.skip_ypos
-    background Frame("gui/skip.png", gui.skip_frame_borders, tile=gui.frame_tile)
-    padding gui.skip_frame_borders.padding
+    ypos 100
+    xpos 50
+    xysize (230,45)
+    background Frame("gui/skip.png")
+    padding gui.notify_frame_borders.padding
 
 style skip_text:
+    ypos 5
+    xpos 5
     size gui.notify_text_size
 
 style skip_triangle:
@@ -1294,7 +1298,7 @@ screen notify(message):
     style_prefix "notify"
 
     frame at notify_appear:
-        text "[message!tq]"
+        text "[message!tq]" size 20
 
     timer 3.25 action Hide('notify')
 
@@ -1311,12 +1315,15 @@ style notify_frame is empty
 style notify_text is gui_text
 
 style notify_frame:
-    ypos gui.notify_ypos
-
-    background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
+    ypos 100
+    xpos 50
+    xysize (230,45)
+    background Frame("gui/notify.png")
     padding gui.notify_frame_borders.padding
 
 style notify_text:
+    yalign 0.6
+    xalign 0.075
     properties gui.text_properties("notify")
 
 

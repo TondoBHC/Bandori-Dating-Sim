@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/map.rpy", line 11: Line is indented, but the preceding ypos statement does not expect a block. Please check this line's indentation.
-    vbox:
-    ^
+The label _call_convoAdv is defined twice, at
+  File "game/host.rpy", line 30 and
+  File "game/host.rpy", line 83.
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat Apr 04 14:11:10 2020
+Sat Apr 11 12:50:57 2020
