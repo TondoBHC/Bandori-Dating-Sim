@@ -1,0 +1,26 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/variables.rpy", line 2, in script
+    init python:
+  File "game/variables.rpy", line 3, in <module>
+    define.fade_transitions("fade", 0.2)
+AttributeError: 'RevertableObject' object has no attribute 'fade_transitions'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/variables.rpy", line 2, in script
+    init python:
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/variables.rpy", line 3, in <module>
+    define.fade_transitions("fade", 0.2)
+AttributeError: 'RevertableObject' object has no attribute 'fade_transitions'
+
+Windows-8-6.2.9200
+Ren'Py 7.3.5.606
+bandori dating sim testing grounds 1.0
+Wed Apr 15 11:28:08 2020

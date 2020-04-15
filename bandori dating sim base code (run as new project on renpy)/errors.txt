@@ -1,0 +1,14 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+The label start is defined twice, at
+  File "game/script.rpy", line 8 and
+  File "game/script.rpy", line 58.
+
+The label nameplayer is defined twice, at
+  File "game/script.rpy", line 18 and
+  File "game/script.rpy", line 70.
+
+Ren'Py Version: Ren'Py 7.3.5.606
+Wed Apr 15 09:14:17 2020
