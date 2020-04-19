@@ -3,42 +3,66 @@
 While running game code:
   File "game/script.rpy", line 26, in script call
     call map from _call_map_3
-  File "game/map.rpy", line 84, in script call
-    call screen map
-  File "game/map.rpy", line 119, in script call
-    call map from _call_map_1
-  File "game/map.rpy", line 84, in script call
-    call screen map
-  File "game/map.rpy", line 98, in script call
-    call hostClub from _call_hostClub
-  File "game/host.rpy", line 46, in script
-    if giftChosen == 1:
-SyntaxError: invalid syntax (game/host.rpy, line 57)
+  File "game/map.rpy", line 83, in script
+    xalign 0.1
+  File "renpy/common/000statements.rpy", line 531, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/common/00action_control.rpy", line 163, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+IndexError: tuple index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script.rpy", line 26, in script call
     call map from _call_map_3
-  File "game/map.rpy", line 84, in script call
-    call screen map
-  File "game/map.rpy", line 119, in script call
-    call map from _call_map_1
-  File "game/map.rpy", line 84, in script call
-    call screen map
-  File "game/map.rpy", line 98, in script call
-    call hostClub from _call_hostClub
-  File "game/host.rpy", line 46, in script
-    if giftChosen == 1:
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/host.rpy, line 57)
+  File "game/map.rpy", line 83, in script
+    xalign 0.1
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1949, in execute
+    self.call("execute")
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1937, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\statements.py", line 277, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 531, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\exports.py", line 2905, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ui.py", line 297, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 3518, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\screen.py", line 714, in event
+    rv = self.child.event(ev, x, y, st)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\behavior.py", line 962, in event
+    return handle_click(self.clicked)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\behavior.py", line 897, in handle_click
+    rv = run(action)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\behavior.py", line 320, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_control.rpy", line 163, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\screen.py", line 1104, in show_screen
+    screen = get_screen_variant(name[0])
+IndexError: tuple index out of range
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 bandori dating sim testing grounds 1.0
-Sat Apr 11 12:58:13 2020
+Sun Apr 19 11:04:56 2020

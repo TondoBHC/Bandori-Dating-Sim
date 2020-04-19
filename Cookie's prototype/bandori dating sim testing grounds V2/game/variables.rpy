@@ -1,9 +1,15 @@
+#making fade transistion shorter
+init python:
+    define.move_transitions("fade", 0.45)
 
 init:
     ## position variables for showing images
     $ l = Position(xpos=0.35)#show at left
     $ r = Position(xpos=0.65)#show at right
 
+init python:
+    def max_points(*values):
+        return [ i for i, v in enumerate(values) if v == max(values) ]
 
 init python:
     ## a list that will store all the gifts,convov1s,dates,guests in game -
@@ -114,14 +120,23 @@ init python:
     #inventory define
     inventory = Inventory(10)
 
+#time variables
+default day = 1
+default time = ["Morning", "Afternoon", "Evening", "Night"] # edit this list to rename, add or delete time of days
+define end_of_day = "Night" # set this as the last time of day before new day begins
+default month = 1
+default months = ["Sep","Oct","Nov","Dec","Jan","Feb"]
 
 #persistent variables
 $ persistent.candy = int(0)
 $ persistent.completedTimes = int(0)
 
+#calender
+define dateOrganised = False #date organised for week?
+define testOn = False #test?
 
 #character define
-#mc
+#mc + stats
 define fullName = Character("[first_name] [last_name]")
 $ persistent.playerName = "[first_name] [last_name]" # used for intro
 $ user = None
@@ -129,7 +144,6 @@ define hostPoints = 0
 define studyPoints = 0
 define schoolPoints = 0
 define resumeGiven = False
-define dateOrganised = False #date organised for week?
 #side
 define principal = Character("Principal")
 define mom = Character("Mom")
@@ -137,6 +151,7 @@ define ga = Character ("Girl A")
 define gb = Character ("Girl B")
 define unk = Character ("???")
 define ka = Character("Kasumi")
+define ts = Character("Tsugumi")
 #additional guest character variables (cookie)
 define gu = Character("Guest")
 define gu1 = Character("Guest A")
@@ -156,14 +171,58 @@ define y = Character("Yukina")
 
 ## Here I've created and defined 3 arrays holding the various
 ## conjugations of the main pronouns we are going to be using throughout the game.
+## To use the pronoun variable they have to be incased in brackets[], friendly reminder that arrays start from 0.
 define theyThem = ["They", "Them", "Their", "They\'re", "they", "them", "their", "they\'re"]
 define heHim = ["He", "Him", "His", "He\'s", "he", "him", "his", "he\'s"]
 define sheHer = ["She", "Her", "Her", "She\'s", "she", "her", "her", "she\'s"]
 ## Empty variable that will hold the array chosen later for ease of use when coding pronouns.
 $ pronoun = None
 
+##IMAGES
+#CGs
+image placeholder = "CGs/placeholder.png"
+
 # Backgrounds
-image bg staff room = "backgrounds/bgStaffRoom.jpg"
-image mc bedroom = "backgrounds/mcBedroom.jpg"
-image school front outside = "backgrounds/schoolFrontOutside.jpg"
-image back = "backgrounds/back.jpg"
+image class evening = "Backgrounds/classroom_color_evening.png"
+image class day = "Backgrounds/classroom_color_morning.png"
+image h bedroom evening = "Backgrounds/hina_bedroom_night.png"
+image h bedroom day = "Backgrounds/hina_bedroom_day.png"
+image park day = "Backgrounds/park_Day.png"
+image park evening = "Backgrounds/park_Evening.png"
+image rooftop = "Backgrounds/rooftop.png"
+
+#Sprites
+#arisa
+image a angry = "Sprites/a_angry.png"
+image a annoyed = "Sprites/a_annoyed.png"
+image a crossed arms = "Sprites/a_crossed_arms.png"
+image a default = "Sprites/a_default.png"
+image a embarassed = "Sprites/a_embarassed.png"
+image a happy = "Sprites/a_happy.png"
+image a sweats = "Sprites/a_sweats.png"
+image a inactive = "Sprites/a_inactive.png"
+#hina
+image h angry = "Sprites/h_angry.png"
+image h blush1 = "Sprites/h_blush1.png"
+image h blush2 = "Sprites/h_blush2.png"
+image h default = "Sprites/h_default.png"
+image h sad = "Sprites/h_sad.png"
+image h inactive = "Sprites/h_inactive.png"
+#sayo
+image s angry1 = "Sprites/s_angry1.png"
+image s angry2 = "Sprites/s_angry2.png"
+image s angry3 = "Sprites/s_angry3.png"
+image s blush = "Sprites/s_blush.png"
+image s default1 = "Sprites/s_default1.png"
+image s default2 = "Sprites/s_default2.png"
+image s happy1 = "Sprites/s_happy1.png"
+image s happy2 = "Sprites/s_happy2.png"
+image s inactive = "Sprites/s_inactive.png"
+#tsugumi
+image ts default = "Sprites/ts_default.png"
+image ts happy = "Sprites/ts_happy.png"
+image ts inactive = "Sprites/ts_inactive.png"
+#yukina
+image y blush = "Sprites/y_blush.png"
+image y default = "Sprites/y_default.png"
+image y inactive = "Sprites/y_inactive.png"

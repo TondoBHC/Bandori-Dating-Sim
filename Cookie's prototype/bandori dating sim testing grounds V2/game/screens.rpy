@@ -4,6 +4,8 @@
 
 init offset = -1
 
+#import variables
+$ import variables as var
 
 ################################################################################
 ## Styles
@@ -92,7 +94,7 @@ screen top_ui:
             xpos -110
             ypos 32
             vbox:
-                text "Sep 20, Afternoon" size 20 text_align 0.5
+                text "[months[0]] [day], [time[0]]" size 20 text_align 0.5
                 ypos 15
                 xpos 15
 

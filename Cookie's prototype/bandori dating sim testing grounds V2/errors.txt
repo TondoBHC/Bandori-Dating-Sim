@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-The label _call_convoAdv is defined twice, at
-  File "game/host.rpy", line 30 and
-  File "game/host.rpy", line 83.
+File "game/map.rpy", line 84: u'xpadding' is not a keyword argument or valid child for the add statement.
+    add "gui/calender.png" xpadding 10
+                                   ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat Apr 11 12:50:57 2020
+Sun Apr 19 10:23:15 2020

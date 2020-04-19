@@ -1,20 +1,19 @@
 $ import variables as var
 
-
 screen map():
     modal True
     imagemap:
         hbox:
             imagebutton auto "gui/planner_%s.png" xpos 1100 ypos 600 action ToggleScreen("Planner",dissolve)#show screen planner
             imagebutton auto "gui/gift_%s.png" xpos 825 ypos 600 action ToggleScreen("giftInv",dissolve)#show inv
-
+            imagebutton auto "gui/stats_%s.png" xpos 550 ypos 600 action ToggleScreen("Stats",dissolve)#show screen planner
         hbox:
             frame:
                 background "gui/datebar.png"
                 xpos 50
                 ypos 32
                 vbox:
-                    text "Sep 20, Afternoon" size 20 text_align 0.5
+                    text "[months[0]] [day], [time[0]]" size 20 text_align 0.5
                     ypos 15
                     xpos 15
         ground "images/map.png" xfill True yfill True
@@ -28,56 +27,68 @@ screen map():
         hotspot (226, 384, 317, 198) clicked Call("Job")
 
 screen Stats():
-    tag Plan
-    modal True
-    add "gui/stats.png"
-    hbox:
-        imagebutton auto "gui/map_%s.png" xpos 1100 ypos 600 action Hide("Plan")#back to map
-    hbox:
-        xalign 1
-        ypos 85
-        imagebutton auto "gui/buttonL_%s.png" action ToggleScreen("Planner")
-    vpgrid:
-        #grid define + spacing
-        cols 2
-        spacing 20
-        ypos 240
-        xpos 795
-        for i in convos:
-                text "[i.topic]: [i.level]"
-    vpgrid:
-        #grid define + spacing
-        cols 2
-        spacing 20
-        ypos 515
-        xpos 815
-        for i in dates:
-                text "[i.name]:[i.bp]"
-    vpgrid:
-        #grid define + spacing
-        cols 1
-        ypos 240
-        xpos 240
+    modal True #used so player cant click on anything outside the screen
+    add "gui/overlay/confirm.png"
+
+    frame:
+        xalign 0.330
+        ypos 50
+        textbutton "Exit":
+            action ToggleScreen("Stats",dissolve)
+
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.5
+        yalign 0.5
+        xysize(500,557)
+
         vbox:
-            spacing 20
-            text "Host Club Points: [hostPoints]"
-            text "Study Points: [studyPoints]"
-            text "Grade: [schoolPoints]"
+            text "Topics"
+            vpgrid:
+                cols 2
+                spacing 10
+                for i in convos:
+                        text "[i.topic]: [i.level]"
+            text ""
+            text "Bond Points"
+            vpgrid:
+                cols 2
+                spacing 10
+                for i in dates:
+                        text "[i.name]:[i.bp]"
+            text ""
+            text "School and Host Club"
+            vbox:
+                spacing 10
+                text "Host Club Points: [hostPoints]"
+                text "Study Points: [studyPoints]"
+                text "Grade: [schoolPoints]"
 
 screen Planner():
     tag Plan
     modal True
-    add "gui/plannerSept.png"
-    hbox:
-        imagebutton auto "gui/map_%s.png" xpos 1100 ypos 600 action Hide("Plan")#back to map
-    hbox:
-        xalign 0.99
-        ypos 85
-        imagebutton auto "gui/buttonR_%s.png" action ToggleScreen("Stats")
-    hbox:
-        xpos 200
-        ypos 160
-        add "gui/test.png"
+    add "gui/overlay/confirm.png"
+    frame:
+        xalign 0.1
+        ypos 220
+        textbutton "Exit":
+            action ToggleScreen("Planner",dissolve)
+
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.5
+        yalign 0.5
+        xsize(1200)
+        add "gui/calender.png" xalign 0.5
+
+    if testOn:
+        add "gui/test.png" pos(900, 335)#test
+    if dateOrganised:
+        add "gui/date.png" pos(140, 335)#date
+
+
 
 
 label map():
