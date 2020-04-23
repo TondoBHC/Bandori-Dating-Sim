@@ -26,12 +26,12 @@ screen convo():
             for i in convos:
                     vbox:
                         textbutton "[i.topic]":
-                            xysize(100,20)
+                            xysize(450,20)
                             action Confirm("Is this topic the one you want?",Return(i),NullAction())
 
 
 label convoAdv(topicC,guestC):
-    if guestC.timesVisited == 0:
+    if topicC.level == 1:
         "I need some advice..."
         if topicC.level == 1:
             "I can give advice!"

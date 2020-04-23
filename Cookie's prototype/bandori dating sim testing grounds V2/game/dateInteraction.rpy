@@ -62,7 +62,8 @@ label interactChoose:
             "Are you sure you want to go home? This will end the day."
             menu:
                 "Yes":
-                    pass
+                    hide screen showAP
+                    jump endDay
                 "No":
                     jump interactChoose
 
@@ -74,7 +75,8 @@ label sampleInteraction(girlID):
     else:
         "You have no more AP..."
         "It's time to go home."
-        call endDay from _call_endDay
+        hide screen showAP
+        jump endDay
         return
     return
 

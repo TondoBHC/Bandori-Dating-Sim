@@ -5,29 +5,19 @@ $ import variables as var
 screen giftscreenBuy():
 
     modal True #used so player cant click on anything outside the screen
+    add "gui/overlay/confirm.png"
 
     frame:
-        xalign 0.330
-        ypos 50
-        textbutton "Exit":
-            action Call("Shop")
-
-
-
-    frame:
-        xpadding 10
-        ypadding 10
         xalign 0.5
         yalign 0.5
+        xpadding 10
+        ypadding 10
+        top_padding 45
         xysize(500,557)
-
-
         vpgrid:
             #grid define + spacing
             cols 2
             spacing 10
-
-
 
             #scrollbar - wanna move this to the side a bit but couldnt really find out how - will continue to investigate in the future or tondo. (eyes emoji)
             if len(gifts)>4:
@@ -35,6 +25,7 @@ screen giftscreenBuy():
                 mousewheel True
                 scrollbars "vertical"
                 side_xalign 0.5
+
 
             #for each non-guest gift - do this
             for i in gifts:
@@ -49,7 +40,11 @@ screen giftscreenBuy():
                             text "[i.cost]"#cost
                         text "[i.desc]":#desc
                             xysize (300,10)
-
+        imagebutton auto "gui/exit_%s.png":
+            action Call("Shop")
+            xalign 0.025
+            yalign 0.5
+            ypos -23
 #label to confirm whether or not the player can buy a gift or not
 label buy(x):
     $chosenItem = x
@@ -66,27 +61,20 @@ label buy(x):
 screen giftscreenGuest():
 
     modal True #used so player cant click on anything outside the screen
+    add "gui/overlay/confirm.png"
 
     frame:
         xpadding 10
         ypadding 10
         xalign 0.5
         yalign 0.5
-        xysize(500,557)
+        xysize(470,557)
 
 
         vpgrid:
             #grid define + spacing
             cols 2
             spacing 10
-
-            #scrollbar - wanna move this to the side a bit but couldnt really find out how - will continue to investigate in the future or tondo. (eyes emoji)
-            #if the number of gifts for a guest is <=4, remove this in future
-            if len(gifts)>4:
-                draggable True
-                mousewheel True
-                scrollbars "vertical"
-                side_xalign 0.5
 
 
             #for each guest gift - do this
@@ -96,7 +84,7 @@ screen giftscreenGuest():
                         add "[i.image]" xalign 1.0 yalign 0.0 #image added
                         hbox:
                             textbutton "[i.name]": #name of gift and button to select/buy
-                                xysize(100,20)
+                                xysize(200,17)
                                 action Confirm("Is this the gift you want?",Return(i.ID),NullAction()) #for some reason, [i.cost] displays instead of the variable - ?
                         text "[i.desc]":#desc
                             xysize (300,10)
@@ -106,6 +94,7 @@ screen giftscreenGuest():
 screen giftscreenDate():
 
     modal True #used so player cant click on anything outside the screen
+    add "gui/overlay/confirm.png"
 
     frame:
         xpadding 10
@@ -144,17 +133,12 @@ screen giftInv():
     add "gui/overlay/confirm.png"
 
     frame:
-        xalign 0.330
-        ypos 50
-        textbutton "Exit":
-            action ToggleScreen("giftInv",dissolve)
-
-    frame:
         xpadding 10
         ypadding 10
         xalign 0.5
         yalign 0.5
         xysize(500,557)
+        top_padding 45
 
 
         vpgrid:
@@ -184,7 +168,11 @@ screen giftInv():
                         text "[i.desc]":#desc
                             xysize (300,10)
 
-
+        imagebutton auto "gui/exit_%s.png":
+            action ToggleScreen("giftInv",dissolve)
+            xalign 0.025
+            yalign 0.5
+            ypos -23
 
 
 # example use:

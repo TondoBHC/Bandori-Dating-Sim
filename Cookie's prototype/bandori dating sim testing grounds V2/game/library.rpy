@@ -8,7 +8,6 @@ label library():
             "Your study points are now up by 1!"
             $ studyPoints += 1
             "Your study points are now [studyPoints]!"
-            return
         "Study a conversation topic.":
                 call screen convo
                 $topicChosen = _return
@@ -16,5 +15,5 @@ label library():
                 "I learned more about [topicChosen.topic]!"
                 "My knowledge levelled up by 1!"
                 "My knowledge on the topic is now [topicChosen.level]!"
-                return
+    jump endDay
     return

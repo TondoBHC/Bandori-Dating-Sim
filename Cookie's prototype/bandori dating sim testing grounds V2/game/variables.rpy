@@ -86,7 +86,7 @@ init python:
     ##object define (samples included)
     #samples
     #gift define sample
-    giftsample1 = gift("Strawberry Shortcake",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/gifts/cake.png")#goes name,price,desc,guest,image
+    giftsample1 = gift("Shortcake",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/gifts/cake.png")#goes name,price,desc,guest,image
     giftsample2 = gift("Earl Grey",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/gifts/tea.png")
     giftsample3 = gift("Green tea",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/gifts/tea2.png")
     giftsample4 = gift("Jello",1,"eeeeeeeeeee{p}eeeeeeeeeee",True,"gui/inv.png")
@@ -95,9 +95,9 @@ init python:
 
     #convov2 sample define
     convosample0 = convo("Animals",0,0)
-    convosample1 = convo("Topic 2",0,0)
-    convosample2 = convo("Topic 3",0,0)
-    convosample3 = convo("Topic 4",0,0)
+    convosample1 = convo("Music",0,0)
+    convosample2 = convo("Bonsai",0,0)
+    convosample3 = convo("Fashion Trends",0,0)
     convosample4 = convo("Topic 5",0,0)
     convosample5 = convo("Topic 6",0,0)
 
@@ -126,6 +126,9 @@ default time = ["Morning", "Afternoon", "Evening", "Night"] # edit this list to 
 define end_of_day = "Night" # set this as the last time of day before new day begins
 default month = 1
 default months = ["Sep","Oct","Nov","Dec","Jan","Feb"]
+default weekday = 1
+default weekdays = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+default week = 1
 
 #persistent variables
 $ persistent.candy = int(0)

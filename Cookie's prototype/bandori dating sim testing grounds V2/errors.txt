@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/map.rpy", line 84: u'xpadding' is not a keyword argument or valid child for the add statement.
-    add "gui/calender.png" xpadding 10
-                                   ^
+File "game/map.rpy", line 127: imagebutton expects a non-empty block.
+    imagebutton auto "gui/buttonR_%s.png" action ToggleScreen("TopicStat",dissolve):
+                                                                                    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sun Apr 19 10:23:15 2020
+Thu Apr 23 11:03:18 2020

@@ -1,23 +1,31 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 26, in script call
-    call map from _call_map_3
-  File "game/map.rpy", line 83, in script
-    xalign 0.1
+  File "game/map.rpy", line 183, in script call
+    call map
+  File "game/map.rpy", line 165, in script
+    call screen map
   File "renpy/common/000statements.rpy", line 531, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-  File "renpy/common/00action_control.rpy", line 163, in __call__
-    renpy.show_screen(self.screen, *self.args, **self.kwargs)
-IndexError: tuple index out of range
+  File "game/map.rpy", line 3, in execute
+    screen map():
+  File "game/map.rpy", line 3, in execute
+    screen map():
+  File "game/map.rpy", line 4, in execute
+    $renpy.pause(hard=True)
+  File "game/map.rpy", line 4, in <module>
+    $renpy.pause(hard=True)
+Exception: ui.interact called with non-empty widget/layer stack. Did you forget a ui.close() somewhere?
+Stack was <Layer: 'transient'>
+<Many: <Fixed at 60474f0>>
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 26, in script call
-    call map from _call_map_3
-  File "game/map.rpy", line 83, in script
-    xalign 0.1
+  File "game/map.rpy", line 183, in script call
+    call map
+  File "game/map.rpy", line 165, in script
+    call screen map
   File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1949, in execute
     self.call("execute")
   File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ast.py", line 1937, in call
@@ -32,37 +40,39 @@ Full traceback:
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 3518, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\screen.py", line 714, in event
-    rv = self.child.event(ev, x, y, st)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\behavior.py", line 962, in event
-    return handle_click(self.clicked)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\behavior.py", line 897, in handle_click
-    rv = run(action)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\behavior.py", line 320, in run
-    return action(*args, **kwargs)
-  File "renpy/common/00action_control.rpy", line 163, in __call__
-    renpy.show_screen(self.screen, *self.args, **self.kwargs)
-  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\screen.py", line 1104, in show_screen
-    screen = get_screen_variant(name[0])
-IndexError: tuple index out of range
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\screen.py", line 430, in visit_all
+    callback(self)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\screen.py", line 440, in per_interact
+    self.update()
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\display\screen.py", line 625, in update
+    self.screen.function(**self.scope)
+  File "game/map.rpy", line 3, in execute
+    screen map():
+  File "game/map.rpy", line 3, in execute
+    screen map():
+  File "game/map.rpy", line 4, in execute
+    $renpy.pause(hard=True)
+  File "game/map.rpy", line 4, in <module>
+    $renpy.pause(hard=True)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\exports.py", line 1480, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward)
+  File "C:\Users\fiona\Documents\Software\renpy-7.3.5-sdk\renpy\ui.py", line 291, in interact
+    raise Exception("ui.interact called with non-empty widget/layer stack. Did you forget a ui.close() somewhere?\nStack was "+('\n'.join([str(item) for item in stack])))
+Exception: ui.interact called with non-empty widget/layer stack. Did you forget a ui.close() somewhere?
+Stack was <Layer: 'transient'>
+<Many: <Fixed at 60474f0>>
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 bandori dating sim testing grounds 1.0
-Sun Apr 19 11:04:56 2020
+Thu Apr 23 11:25:03 2020

@@ -94,7 +94,7 @@ screen top_ui:
             xpos -110
             ypos 32
             vbox:
-                text "[months[0]] [day], [time[0]]" size 20 text_align 0.5
+                text "[weekdays[0]], [months[0]] [day], [time[0]]" size 17 text_align 0.5
                 ypos 15
                 xpos 15
 

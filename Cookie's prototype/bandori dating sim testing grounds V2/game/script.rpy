@@ -2,29 +2,42 @@
 
 # The game starts here.
 
-
-define e = Character("eileen")
-
 label start:
-    $renpy.notify("Hello")
-    show screen  top_ui
-    scene park
-    show annoyed at l
-    show sayo at r
-    a "hello world"
+    show screen top_ui
+    "Which pronouns do you prefer using?"
     menu:
-        "yestkjlrkfgklgbk;ldgtld;lfg":
-            a "yes"
-        "no":
-            a "no?"
-        "3":
-            a "3"
-        "4":
-            a "4"
-        "5":
-            a "5"
-    call map from _call_map_3
+        "They/Them":
+            $ pronoun = theyThem
+        "He/Him":
+            $ pronoun = heHim
+        "She/Her":
+            $ pronoun = sheHer
+    label nameplayer:
+        "What name would you like to go by?"
+        $ first_name = renpy.input("First name")
+        $ first_name = first_name.strip()
+        $ last_name = renpy.input("Last name")
+        $ last_name = last_name.strip()
+        if (first_name == (("Jonathan") or ("Joseph") or ("Johnny")) and last_name == ("Joestar")) or (first_name == ("Jotaro") and last_name == ("Kujo")) or (first_name == ("Josuke") and last_name == ("Higashikata")) or (first_name == ("Jolyne") and last_name == ("Cujoh")):
+            $ user = ("JoJo")
+        elif first_name == ("Giorno") and last_name == ("Giovanna"):
+            $ user = ("GioGio")
+        else:
+            $ user = Character("[first_name]")
+        "So [fullName], is that right?"
+        menu:
+            "Yes, [fullName]":
+                pass
+                $persistent.playername = "[first_name] [last_name]"
+            "No":
+                "Well then, enter the correct one."
+                call nameplayer
+    #jump to the all script label - and thus the allscript.rpy file
+    jump fd_allscript
     return
 
 label endDay:
+    $ _skipping = True
+    call advance(3)
+    jump fd_allscript
     return

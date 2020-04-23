@@ -1,6 +1,7 @@
 $ import variables as var
 
 label Job():
+    $ _skipping = True
     scene parttime
     "Welcome to your job."
     if not resumeGiven:
@@ -23,5 +24,5 @@ label Job():
             "No":
                 call map from _call_map_5
 
-
+    jump endDay
     return
